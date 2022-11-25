@@ -1,0 +1,6 @@
+﻿  Game.cpp
+  SnakeGame.cpp
+  Создание кода...
+C:\Users\Namxobick\source\repos\SnakeGame\Game.cpp(87): warning C4715: Game::ReGame: значение возвращается не при всех путях выполнения
+C:\Users\Namxobick\source\repos\SnakeGame\Game.cpp(124): warning C4715: Game::Controls: значение возвращается не при всех путях выполнения
+  SnakeGame.vcxproj -> C:\Users\Namxobick\source\repos\SnakeGame\Debug\SnakeGame.exe
