@@ -46,3 +46,6 @@ bld/
 *.exe
 *.out
 *.app
+
+# Visual Studio cache/options directory
+.vs/
