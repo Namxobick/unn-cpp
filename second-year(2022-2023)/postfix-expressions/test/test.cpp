@@ -21,7 +21,7 @@ TEST(ExpressionValidator, ExpressionIsntCorrect_TwoOperationsInRow)
 	EXPECT_EQ(false, result);
 }
 
-TEST(ExpressionValidator, ExpressionIsntCorrect_ÑlosingBracket)
+TEST(ExpressionValidator, ExpressionIsntCorrect_ClosingBracket)
 {
 	std::string expression = ")5-+a)";
 	bool result = ExpressionValidator().IsExpressionCorrect(expression);
