@@ -60,20 +60,20 @@ private:
     void Skew(Node<TypeKey, TypeValue>*); // балансировка дерева: устранение левого горизонтального ребра
     bool Split(Node<TypeKey, TypeValue>*); // балансировка дерева: устранение двух последовательных правых горизонтальных ребер
     void Balance(Node<TypeKey, TypeValue>*); // балансировка дерева
-    bool InsertHelp(Node<TypeKey, TypeValue>*, Node<TypeKey, TypeValue>*); // Вспомогающий метод, для вставки элемента. Возращает true, если удалось вставить элемент
-    TypeValue* SearchHelp(Node<TypeKey, TypeValue>*, TypeKey, bool change = false, TypeValue* newValue = nullptr); // Вспомогающий метод для поиска элемента. Выбрасывает ошибку, если ключ не найден.
-    bool DeleteHelp(Node<TypeKey, TypeValue>*, Node<TypeKey, TypeValue>*, TypeKey); // Вспомогающий метод для удаления элемента.  Возращает true, если удалось удалить элемент
+    bool InsertHelp(Node<TypeKey, TypeValue>*, Node<TypeKey, TypeValue>*); // вспомогающий метод, для вставки элемента. Возращает true, если удалось вставить элемент
+    TypeValue* SearchHelp(Node<TypeKey, TypeValue>*, TypeKey, bool change = false, TypeValue* newValue = nullptr); // вспомогающий метод для поиска элемента. Выбрасывает ошибку, если ключ не найден.
+    bool DeleteHelp(Node<TypeKey, TypeValue>*, Node<TypeKey, TypeValue>*, TypeKey); // вспомогающий метод для удаления элемента.  Возращает true, если удалось удалить элемент
 
 public:
     Table(); // конструктор по умолчанию
     Table(std::pair<TypeKey, TypeValue>* elements); // конструктор
     ~Table(); // деструктор
 
-    bool TryInsert(TypeKey key, TypeValue value) noexcept; // Добавляет новый элемент. Возращает true, если удалось вставить элемент
-    bool TryRemove(TypeKey key) noexcept; // Удаляет элемент. Возращает true, если удалось вставить элемент
-    bool TryChangeValue(TypeKey key, TypeValue value) noexcept; // Изменяет значение элемента по ключу. Возращает true, если удалось изменить элемент
+    bool TryInsert(TypeKey key, TypeValue value) noexcept; // добавляет новый элемент. Возращает true, если удалось вставить элемент
+    bool TryRemove(TypeKey key) noexcept; // удаляет элемент. Возращает true, если удалось вставить элемент
+    bool TryChangeValue(TypeKey key, TypeValue value) noexcept; // изменяет значение элемента по ключу. Возращает true, если удалось изменить элемент
 
-    std::pair<const TypeValue&, bool> Find(TypeKey key); // Ищет элемент по ключу. Возращает пару: если элемент найден, то возращает значение элемента и true, иначе - дефолтное значение и false
+    std::pair<const TypeValue&, bool> Find(TypeKey key); // ищет элемент по ключу. Возращает пару: если элемент найден, то возращает значение элемента и true, иначе - дефолтное значение и false
 
     Table<TypeKey, TypeValue>& operator=(const Table<TypeKey, TypeValue> other); //
 
