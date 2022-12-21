@@ -4,12 +4,12 @@
 В рамках лабораторной работы ставятся задачи реализации программ, обеспечивающих поддержку стеков, и разработки программных средств, производящих обработку арифметических выражений, включая проверку правильности записи выражения, перевод в постфиксную форму и вычисление результата.
     
 ## Структура
-* TStack.h – шаблонный класс стек.
-* Table.h - шаблонный класс словарь, реализованный на AA-дереве.
-* ExpressionValidator.h, ExpressionValidator.cpp - класс, проверяющий корректность выражения.
-* ExpressionValidator.h, ExpressionSeparator.cpp - класс, разбивающий выражения на токены.
-* PostfixExpessions.h, PostfixExpessions.cpp - класс, конвертирующий выражение в постфиксную форму и считающий значение постфиксного выражения.
-* test.cpp - модуль программ тестирования.
+* [TStack.h](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/TStack.h) – шаблонный класс стек.
+* [Table.h](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/Table.h) - шаблонный класс словарь, реализованный на AA-дереве.
+* [ExpressionValidator.h](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/ExpressionValidator.h), [ExpressionValidator.cpp](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/ExpressionValidator.cpp) - класс, проверяющий корректность выражения.
+* [ExpressionSeparator.h](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/ExpressionSeparator.h), [ExpressionSeparator.cpp](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/ExpressionSeparator.cpp) - класс, разбивающий выражения на токены.
+* [PostfixExpessions.h](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/PostfixExpessions.h), [PostfixExpessions.cpp](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/PostfixExpressions/PostfixExpessions.cpp) - класс, конвертирующий выражение в постфиксную форму и считающий значение постфиксного выражения.
+* [test.cpp](https://github.com/Namxobick/unn-cpp/blob/main/second-year(2022-2023)/postfix-expressions/test/test.cpp) - модуль программ тестирования.
 
 ## Спецификации классов
 ### 1.Tstack
