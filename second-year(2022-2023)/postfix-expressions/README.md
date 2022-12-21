@@ -104,7 +104,7 @@ enum TokenType
     Operation,
     Default,
 };
-
+```
 * Структуры:
 ```cpp
 struct Token {
