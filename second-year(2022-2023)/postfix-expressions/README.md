@@ -75,7 +75,7 @@ public:
 
     std::pair<const TypeValue&, bool> Find(TypeKey key); // ищет элемент по ключу. Возращает пару: если элемент найден, то возращает значение элемента и true, иначе - дефолтное значение и false
 
-    Table<TypeKey, TypeValue>& operator=(const Table<TypeKey, TypeValue> other); //
+    Table<TypeKey, TypeValue>& operator=(const Table<TypeKey, TypeValue> other);
 
     std::pair<TypeValue&, bool> operator[](TypeKey key); // аналог метода Find
     
