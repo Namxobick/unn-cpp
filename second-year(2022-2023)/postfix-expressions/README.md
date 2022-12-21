@@ -99,10 +99,10 @@ public:
 ```cpp
 enum TokenType
 {
-	Number,
-	Letters,
-	Operation,
-	Default,
+    Number,
+    Letters,
+    Operation,
+    Default,
 };
 
 * Структуры:
