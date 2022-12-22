@@ -39,7 +39,8 @@ public:
 АA-дерево — структура данных, представляющая собой сбалансированное двоичное дерево поиска, которое является разновидностью красно-черного дерева с дополнительными ограничениями.
 * Структуры:
 ```cpp
-struct Node {
+struct Node
+{
     size_t level; // уровень
     Node *right; // указатель на правого потомка
     Node *left; // указатель на левого потомка
@@ -107,7 +108,8 @@ enum TokenType
 ```
 * Структуры:
 ```cpp
-struct Token {
+struct Token 
+{
     TokenType type;
     std::string literal;
     Token(TokenType type = Default, std::string literal = "")
