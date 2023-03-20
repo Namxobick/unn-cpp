@@ -1,0 +1,3 @@
+/Users/namxobick/Documents/GitHub/unn-cpp/second-year(2022-2023)/Tables/cmake-build-debug/CMakeFiles/Tables.dir
+/Users/namxobick/Documents/GitHub/unn-cpp/second-year(2022-2023)/Tables/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/namxobick/Documents/GitHub/unn-cpp/second-year(2022-2023)/Tables/cmake-build-debug/CMakeFiles/rebuild_cache.dir
