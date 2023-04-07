@@ -11,7 +11,7 @@
 
 class Timer {
 public:
-    double MarkTime(std::string, TScanTable*);
+    double MarkTime(const std::string&, TScanTable*);
 };
 
 

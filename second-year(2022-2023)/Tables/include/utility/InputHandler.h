@@ -12,8 +12,8 @@
 
 class InputHandler {
 private:
-    const std::vector<char> PUNCTUATION_MARK = {'\n', '\t', ' ', '.', ',', '!', '?', ':', ';', '\"', '(', ')', '-',
-                                                '[', ']', '"', '*'};
+    const std::vector<char> PUNCTUATION_MARK = {'\n', '\t', ' ', '.', ',', '!', '?', ':', ';', '"', '(', ')', '-',
+                                                '[', ']', '*'};
 public:
     void ProcessInput(const std::string& path, TScanTable* scanTable);
 
