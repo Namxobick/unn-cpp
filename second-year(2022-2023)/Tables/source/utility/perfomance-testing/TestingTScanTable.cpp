@@ -22,9 +22,9 @@ void TestingTScanTable::Test(const std::string& path, const std::string& word, T
 
 void TestingTScanTable::TestOneMethod(const std::function<void(const std::string &, TScanTable *)> &function,
                                       const std::string& nameMethod, const std::string& str) {
-    std::cout << "Start of " << nameMethod << std::endl;
+    std::cout << "------Start of " << nameMethod << "------" << std::endl;
     HelpTest(function, str);
-    std::cout << "End of " << nameMethod << std::endl << std::endl;
+    std::cout << "------End of " << nameMethod << "------" << std::endl << std::endl;
 }
 
 void TestingTScanTable::HelpTest(const std::function<void(const std::string& word, TScanTable* scanTable)> &function,
