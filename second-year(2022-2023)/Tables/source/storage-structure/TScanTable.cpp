@@ -11,7 +11,7 @@ TDataValue *TScanTable::Find(TKey key) {
         if (pData[index]->key == key)
             break;
 
-    efficiencyIndicator += index + 1;
+    efficiencyIndicator += (index + 1);
 
     if (index < TTable::size)
     {
@@ -49,6 +49,7 @@ void TScanTable::Remove(TKey key) {
         SetRetCode(TAB_NO_RECORD);
     else {
         SetRetCode(TAB_OK);
+        delete pData[curPosition];
         pData[curPosition] = pData[TTable::size - 1];
         pData[--TTable::size] = nullptr;
 

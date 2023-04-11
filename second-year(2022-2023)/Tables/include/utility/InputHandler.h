@@ -14,12 +14,15 @@ class InputHandler {
 private:
     const std::vector<char> PUNCTUATION_MARK = {'\n', '\t', ' ', '.', ',', '!', '?', ':', ';', '"', '(', ')', '-',
                                                 '[', ']', '*'};
+    TScanTable* _scanTable;
 public:
     void ProcessInput(const std::string& path, TScanTable* scanTable);
 
 private:
-    void AddedWordInTable(TScanTable *scanTable, const std::string& buffer, BookNumber bookNumber,
-                          TypeSymbols typeSymbols, Language language, uint32_t counter);
+    void ProcessNumber(char sym, std::string& buffer, BookNumber bookNumber, TypeSymbols& typeSymbols,
+                       Language& language, uint32_t& counter);
+    void AddedWordInTable(const std::string& buffer, BookNumber bookNumber, TypeSymbols typeSymbols,
+                          Language language, uint32_t counter);
     BookNumber DefineBook(const std::string& buffer, BookNumber bookNumber);
 
 };

@@ -9,7 +9,7 @@ TTable::TTable() {
     efficiencyIndicator = 0;
 }
 
-uint TTable::GetEfficiencyIndicator() const {
+uint64_t TTable::GetEfficiencyIndicator() const {
     return efficiencyIndicator;
 }
 

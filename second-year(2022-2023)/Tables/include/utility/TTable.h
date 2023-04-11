@@ -20,13 +20,13 @@
 class TTable: public TDatCom {
 protected:
     size_t size;
-    uint32_t efficiencyIndicator;
+    uint64_t efficiencyIndicator;
 
 public:
     TTable();
     ~TTable() override = default;
     [[nodiscard]] size_t GetSize() const;
-    [[nodiscard]] uint GetEfficiencyIndicator() const;
+    [[nodiscard]] uint64_t GetEfficiencyIndicator() const;
     [[nodiscard]] bool IsEmpty() const;
 
     [[nodiscard]] virtual bool IsFull() const = 0;

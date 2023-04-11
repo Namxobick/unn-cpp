@@ -11,6 +11,7 @@
 #include "../utility/TDataValue.h"
 
 enum class BookNumber{
+    DEFAULT,
     ONE,
     TWO,
     THREE,
@@ -19,12 +20,14 @@ enum class BookNumber{
 };
 
 enum class TypeSymbols{
+    DEFAULT,
     WORD,
     NUMBER,
     PUNCTUATION_MARK,
 };
 
 enum class Language{
+    DEFAULT,
     RUSSIAN,
     FRENCH,
     NONE,
@@ -56,6 +59,7 @@ private:
     std::vector<uint32_t> _sequentialNumbers;
 
 public:
+    TWordsInWarAndPeace();
     TWordsInWarAndPeace(BookNumber bookNumber, TypeSymbols typeSymbols, Language language, uint32_t sequentialNumber);
     void AddWord(uint32_t sequentialNumber, BookNumber bookNumber);
     void RemoveWord(uint32_t sequentialNumber, BookNumber bookNumber);

@@ -4,6 +4,14 @@
 
 #include "../../include/data-structure/TWordsInWarAndPeace.h"
 
+TWordsInWarAndPeace::TWordsInWarAndPeace(){
+    _wordCount = {0, 0, 0, 0, 0};
+    ChangeWordCount(BookNumber::DEFAULT, 1);
+    _typeSymbols = TypeSymbols::DEFAULT;
+    _language = Language::DEFAULT;
+    _sequentialNumbers.push_back(0);
+}
+
 TWordsInWarAndPeace::TWordsInWarAndPeace(BookNumber bookNumber, TypeSymbols typeSymbols, Language language,
                                          uint32_t sequentialNumber) {
     _wordCount = {0, 0, 0, 0, 0};
@@ -56,28 +64,35 @@ void TWordsInWarAndPeace::Print(std::ostream &os) const {
 
     switch(_typeSymbols){
         case TypeSymbols::WORD:
-            os << "Word"<< '\t';
+            os << "Word" << '\t';
             break;
         case TypeSymbols::NUMBER:
-            os << "Number"<< '\t';
+            os << "Number" << '\t';
             break;
         case TypeSymbols::PUNCTUATION_MARK:
-            os << "Punctuation marks"<< '\t';
+            os << "Punctuation marks" << '\t';
+            break;
+        default:
+            os << "Default" << '\t';
             break;
     }
 
     switch (_language) {
         case Language::RUSSIAN:
-            os << "Russian"<< '\t';
+            os << "Russian" << '\t';
             break;
         case Language::FRENCH:
-            os << "French"<< '\t';
+            os << "French" << '\t';
             break;
         case Language::NONE:
-            os << "None"<< '\t';
+            os << "None" << '\t';
+            break;
+        default:
+            os << "Default" << '\t';
             break;
     }
 
+    os << "[" << *_sequentialNumbers.begin() << ", ..., " << *(_sequentialNumbers.end() - 1) << "]";
 //    os << "[";
 //    for (auto sequentialNumber : _sequentialNumbers) {
 //        os << sequentialNumber << ", ";
@@ -88,4 +103,5 @@ void TWordsInWarAndPeace::Print(std::ostream &os) const {
 TDataValue *TWordsInWarAndPeace::GetCopy() {
     return nullptr;
 }
+
 
