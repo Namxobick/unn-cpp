@@ -9,7 +9,7 @@
 
 class MergeSort {
 public:
-    uint32_t Sort(TTableRecord** data, size_t size);
+    uint32_t Sort(TTableRecord** &data, size_t size);
 
 private:
     TTableRecord** Sort(TTableRecord** arrUp, TTableRecord** arrDown, uint32_t indexFirstElement, uint32_t indexLastElement,

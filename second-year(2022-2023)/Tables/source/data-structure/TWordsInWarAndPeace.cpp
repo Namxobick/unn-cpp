@@ -2,6 +2,8 @@
 // Created by Андрей Юрин on 03.04.2023.
 //
 
+#include <utility>
+
 #include "../../include/data-structure/TWordsInWarAndPeace.h"
 
 TWordsInWarAndPeace::TWordsInWarAndPeace(){
@@ -19,6 +21,14 @@ TWordsInWarAndPeace::TWordsInWarAndPeace(BookNumber bookNumber, TypeSymbols type
     _typeSymbols = typeSymbols;
     _language = language;
     _sequentialNumbers.push_back(sequentialNumber);
+}
+
+TWordsInWarAndPeace::TWordsInWarAndPeace(WordCount wordCount, TypeSymbols typeSymbols, Language language,
+                                         std::vector<uint32_t> sequentialNumbers) {
+    _wordCount = wordCount;
+    _typeSymbols = typeSymbols;
+    _language = language;
+    _sequentialNumbers = std::move(sequentialNumbers);
 }
 
 void TWordsInWarAndPeace::AddWord(uint32_t sequentialNumber, BookNumber bookNumber) {
@@ -101,7 +111,8 @@ void TWordsInWarAndPeace::Print(std::ostream &os) const {
 }
 
 TDataValue *TWordsInWarAndPeace::GetCopy() {
-    return nullptr;
+    return new TWordsInWarAndPeace(_wordCount, _typeSymbols, _language, _sequentialNumbers);
 }
+
 
 

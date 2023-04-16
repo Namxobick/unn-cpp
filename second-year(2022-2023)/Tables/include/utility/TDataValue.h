@@ -14,6 +14,7 @@ protected:
 
 public:
     virtual TDataValue* GetCopy() = 0;
+    virtual ~TDataValue() = default;
     friend std::ostream& operator<<(std::ostream& ostream, const TDataValue& datValue);
 };
 

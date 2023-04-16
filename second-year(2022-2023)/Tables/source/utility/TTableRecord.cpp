@@ -18,8 +18,12 @@ void TTableRecord::SetValue(TDataValue *value) {
 
 TTableRecord::TTableRecord(TKey key, TDataValue *value) : key(std::move(key)), value(value){}
 
-TTableRecord * TTableRecord::GetCopy() {
-    return new TTableRecord(key, value);
+TTableRecord::~TTableRecord() {
+    delete value;
+}
+
+TDataValue * TTableRecord::GetCopy() {
+    return new TTableRecord(key, value->GetCopy());
 }
 
 TKey TTableRecord::GetKey() {
@@ -49,5 +53,6 @@ bool TTableRecord::operator<(const TTableRecord &other) {
 bool TTableRecord::operator>(const TTableRecord &other) {
     return key > other.key;
 }
+
 
 

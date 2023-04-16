@@ -23,7 +23,7 @@ class Sorting {
 private:
     const std::string ERROR_MESSAGE = "The sorting method does not match the number of parameters";
 public:
-    uint64_t Sort(SortingMethod sortingMethod, TTableRecord** data, size_t size);
+    uint64_t Sort(SortingMethod sortingMethod, TTableRecord** &data, size_t size);
     uint64_t Sort(SortingMethod sortingMethod, TTableRecord** data, size_t size,
                   const std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> &calculateIndexSupportElement);
 

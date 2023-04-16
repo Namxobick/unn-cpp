@@ -9,7 +9,7 @@ uint64_t InsertionSort::Sort(TTableRecord **data, size_t size) {
 
     for (uint32_t i = 1; i < size; ++i) {
         auto record = data[i];
-        uint32_t location = i - 1;
+        int64_t location = i - 1;
 
         while (location >= 0 and *data[location] > *record){
             data[location + 1] = data[location];

@@ -4,14 +4,19 @@
 
 #include "../../../include/utility/sorting/MergeSort.h"
 
-uint32_t MergeSort::Sort(TTableRecord **data, size_t size) {
+uint32_t MergeSort::Sort(TTableRecord **&data, size_t size) {
     auto copyData = CreateCopy(data, size);
     uint64_t efficiencyIndicator = 0;
 
     Sort(data, copyData, 0, size-1, efficiencyIndicator);
 
-    MakeDataSorted(data, copyData, size);
-    FreeUpMemory(copyData, size);
+    if (!IsDataSorted(data, size)) {
+        delete[] data;
+        data = copyData;
+    }
+    else{
+        delete[] copyData;
+    }
 
     return efficiencyIndicator;
 }
@@ -59,11 +64,9 @@ TTableRecord** MergeSort::Sort(TTableRecord **arrUp, TTableRecord **arrDown, uin
 
 TTableRecord **MergeSort::CreateCopy(TTableRecord **data, size_t size) {
     auto copyData = new TTableRecord* [size];
-    for (uint32_t i = 0; i < size; ++i){
-        copyData[i] = nullptr;
-    }
+
     for (uint32_t i = 0; i < size; ++i) {
-        copyData[i] = data[i]->GetCopy();
+        copyData[i] = data[i];
     }
     return copyData;
 }
@@ -77,17 +80,3 @@ bool MergeSort::IsDataSorted(TTableRecord **data, size_t size) {
     return true;
 }
 
-void MergeSort::MakeDataSorted(TTableRecord **data, TTableRecord **copyData, size_t size) {
-    if (!IsDataSorted(data, size)){
-        for (uint32_t i = 0; i < size; ++i) {
-            data[i] = copyData[i]->GetCopy();
-        }
-    }
-}
-
-void MergeSort::FreeUpMemory(TTableRecord **data, size_t size) {
-    for (uint32_t i = 0; i < size; ++i) {
-        delete data[i];
-    }
-    delete[] data;
-}

@@ -24,7 +24,6 @@ void Writer::WriteInFile(const std::string& path, TScanTable *scanTable1) {
             key = "\\t";
         else
             key = scanTable->GetKey();
-
         outFile << key << '\t' << *scanTable->GetValue() << std::endl;
     }
     outFile.close();

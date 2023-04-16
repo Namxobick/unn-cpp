@@ -6,7 +6,7 @@
 #include "../../../include/utility/sorting/QuickSort.h"
 #include "../../../include/utility/sorting/MergeSort.h"
 
-uint64_t Sorting::Sort(SortingMethod sortingMethod, TTableRecord** data, size_t size) {
+uint64_t Sorting::Sort(SortingMethod sortingMethod, TTableRecord** &data, size_t size) {
     uint64_t efficiencyIndicator = 0;
 
     switch (sortingMethod) {

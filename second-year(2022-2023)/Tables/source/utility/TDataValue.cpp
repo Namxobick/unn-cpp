@@ -4,7 +4,9 @@
 
 #include "../../include/utility/TDataValue.h"
 
+
 std::ostream& operator<<(std::ostream& ostream, const TDataValue& datValue) {
     datValue.Print(ostream);
     return ostream;
 }
+
