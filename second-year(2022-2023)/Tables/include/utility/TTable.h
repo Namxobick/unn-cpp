@@ -25,8 +25,9 @@ protected:
 public:
     TTable();
     ~TTable() override = default;
-    [[nodiscard]] size_t GetSize() const;
+    [[nodiscard]] size_t GetNumberOfEntries() const;
     [[nodiscard]] uint64_t GetEfficiencyIndicator() const;
+    void ResetEfficiencyIndicator();
     [[nodiscard]] bool IsEmpty() const;
 
     [[nodiscard]] virtual bool IsFull() const = 0;

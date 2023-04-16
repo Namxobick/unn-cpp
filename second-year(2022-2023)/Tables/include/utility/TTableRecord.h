@@ -23,6 +23,7 @@ protected:
 public:
     explicit TTableRecord(TKey  key = "", TDataValue* value = nullptr);
     TDataValue* GetCopy() override;
+    TKey GetKey();
     TDataValue* GetValue();
 
     TTableRecord& operator=(const TTableRecord& other);

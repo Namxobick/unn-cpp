@@ -29,10 +29,10 @@ void TestingTScanTable::TestOneMethod(const std::function<void(const std::string
 
 void TestingTScanTable::HelpTest(const std::function<void(const std::string& word, TScanTable* scanTable)> &function,
                                  const std::string& str) {
-    uint64_t efficiencyIndicator = _scanTable->GetEfficiencyIndicator();
     double time_spent = Timer().MarkTime(function, str, _scanTable);
-    std::cout << "Number of records " << _scanTable->GetSize() << std::endl;
+    std::cout << "Number of records " << _scanTable->GetNumberOfEntries() << std::endl;
     std::cout << "The elapsed time is " << time_spent << " seconds" << std::endl;
-    std::cout << "The number of operations spent is equal to " << _scanTable->GetEfficiencyIndicator() - efficiencyIndicator << std::endl;
+    std::cout << "The number of operations spent is equal to " << _scanTable->GetEfficiencyIndicator() << std::endl;
+    _scanTable->ResetEfficiencyIndicator();
 }
 

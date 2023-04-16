@@ -6,6 +6,7 @@
 
 void InputHandler::ProcessInput(const std::string& path, TScanTable* scanTable) {
     _scanTable = scanTable;
+
     std::ifstream inFile(path);
 
     if (!inFile.is_open())
@@ -23,6 +24,7 @@ void InputHandler::ProcessInput(const std::string& path, TScanTable* scanTable) 
         typeSymbols = TypeSymbols::WORD;
 
         inFile.get(sym);
+
         while (std::find(PUNCTUATION_MARK.begin(), PUNCTUATION_MARK.end(), sym) == PUNCTUATION_MARK.end()) {
             ProcessNumber(sym, buffer, bookNumber, typeSymbols, language, counter);
             if (('A' <= sym and sym <= 'Z') or ('a' <= sym and sym <= 'z'))
@@ -33,10 +35,9 @@ void InputHandler::ProcessInput(const std::string& path, TScanTable* scanTable) 
         }
 
         bookNumber = DefineBook(buffer, bookNumber);
-        if (!buffer.empty())
+        if (!buffer.empty() or buffer == "—")
             AddedWordInTable(buffer, bookNumber, typeSymbols, language, counter++);
-
-        AddedWordInTable(std::string(&sym), bookNumber, TypeSymbols::PUNCTUATION_MARK,
+        AddedWordInTable(std::string(1, sym), bookNumber, TypeSymbols::PUNCTUATION_MARK,
                          Language::NONE, counter++);
 
         buffer.clear();

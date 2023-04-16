@@ -22,6 +22,10 @@ TDataValue *TTableRecord::GetCopy() {
     return new TTableRecord(key, value);
 }
 
+TKey TTableRecord::GetKey() {
+    return key;
+}
+
 TDataValue *TTableRecord::GetValue() {
     return value;
 }
@@ -45,4 +49,5 @@ bool TTableRecord::operator<(const TTableRecord &other) {
 bool TTableRecord::operator>(const TTableRecord &other) {
     return key > other.key;
 }
+
 

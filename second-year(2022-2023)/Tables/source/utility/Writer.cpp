@@ -3,6 +3,7 @@
 //
 
 #include "../../include/utility/Writer.h"
+#include "../../include/storage-structure/TSortTable.h"
 
 void Writer::WriteInFile(const std::string& path, TScanTable *scanTable) {
     std::ofstream outFile;
@@ -10,6 +11,8 @@ void Writer::WriteInFile(const std::string& path, TScanTable *scanTable) {
     outFile << "Key\tBook One\tBook Two\tBook Three\tBook Four\tEpilogue\tType Symbols\tLanguage" << std::endl;
     std::string key;
     for (auto it = (scanTable->Reset(), scanTable->GetCurrentPosition()); it == scanTable->IsTabEnded(); scanTable->Next()){
+        auto temp = scanTable->GetKey();
+
         if (scanTable->GetKey() == "\""  or (int) scanTable->GetKey()[0] == 34)
             key = "'";
         else if (scanTable->GetKey() == "—")

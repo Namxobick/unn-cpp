@@ -15,15 +15,15 @@ enum class Position{
 
 class TArrayTable: public TTable{
 protected:
-    TTableRecord** pData;
     size_t size;
     uint32_t curPosition;
 
+    TTableRecord** pData;
 public:
     explicit TArrayTable(size_t size = 10);
     ~TArrayTable() override;
 
-    size_t GetSize();
+    [[nodiscard]] size_t GetSize() const;
 
     [[nodiscard]] bool IsFull() const override;
 
@@ -37,6 +37,7 @@ public:
     [[nodiscard]] TDataValue *GetValue() const override;
     [[nodiscard]] virtual TDataValue* GetValue(Position position) const;
 
+    friend class TSortTable;
 };
 
 

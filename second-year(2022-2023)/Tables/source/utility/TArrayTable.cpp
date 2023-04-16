@@ -19,8 +19,8 @@ TArrayTable::~TArrayTable() {
     delete[] pData;
 }
 
-size_t TArrayTable::GetSize() {
-    return TTable::size;
+size_t TArrayTable::GetSize() const {
+    return size;
 }
 
 bool TArrayTable::IsFull() const {

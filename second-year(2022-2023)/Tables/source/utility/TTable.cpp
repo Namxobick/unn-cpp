@@ -13,7 +13,11 @@ uint64_t TTable::GetEfficiencyIndicator() const {
     return efficiencyIndicator;
 }
 
-size_t TTable::GetSize() const {
+void TTable::ResetEfficiencyIndicator() {
+    efficiencyIndicator = 0;
+}
+
+size_t TTable::GetNumberOfEntries() const {
     return size;
 }
 
@@ -27,3 +31,4 @@ std::ostream &operator<<(std::ostream &out, TTable &table) {
 
     return out;
 }
+
