@@ -15,7 +15,6 @@ enum class SortingMethod{
     QuickSort,
     MergeSort,
     HeapSort,
-    CalculationSort,
     StdSort,
 };
 

@@ -21,8 +21,6 @@ uint64_t Sorting::Sort(SortingMethod sortingMethod, TTableRecord** &data, size_t
             break;
         case SortingMethod::HeapSort:
             break;
-        case SortingMethod::CalculationSort:
-            break;
         case SortingMethod::StdSort:
             std::sort(data, data + size,
                       [](TTableRecord* first, TTableRecord* second){return *first < *second;});
