@@ -22,7 +22,7 @@ protected:
 
 public:
     explicit TTableRecord(TKey  key = "", TDataValue* value = nullptr);
-    TDataValue* GetCopy() override;
+    TTableRecord * GetCopy() override;
     TKey GetKey();
     TDataValue* GetValue();
 

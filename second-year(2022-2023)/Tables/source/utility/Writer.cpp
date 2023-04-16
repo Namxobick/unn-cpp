@@ -5,7 +5,8 @@
 #include "../../include/utility/Writer.h"
 #include "../../include/storage-structure/TSortTable.h"
 
-void Writer::WriteInFile(const std::string& path, TScanTable *scanTable) {
+void Writer::WriteInFile(const std::string& path, TScanTable *scanTable1) {
+    TSortTable* scanTable = new TSortTable(*scanTable1, SortingMethod::MergeSort);
     std::ofstream outFile;
     outFile.open(path);
     outFile << "Key\tBook One\tBook Two\tBook Three\tBook Four\tEpilogue\tType Symbols\tLanguage" << std::endl;

@@ -18,7 +18,7 @@ void TTableRecord::SetValue(TDataValue *value) {
 
 TTableRecord::TTableRecord(TKey key, TDataValue *value) : key(std::move(key)), value(value){}
 
-TDataValue *TTableRecord::GetCopy() {
+TTableRecord * TTableRecord::GetCopy() {
     return new TTableRecord(key, value);
 }
 

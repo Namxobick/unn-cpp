@@ -4,6 +4,7 @@
 
 #include "../../../include/utility/sorting/Sorting.h"
 #include "../../../include/utility/sorting/QuickSort.h"
+#include "../../../include/utility/sorting/MergeSort.h"
 
 uint64_t Sorting::Sort(SortingMethod sortingMethod, TTableRecord** data, size_t size) {
     uint64_t efficiencyIndicator = 0;
@@ -16,8 +17,11 @@ uint64_t Sorting::Sort(SortingMethod sortingMethod, TTableRecord** data, size_t 
             efficiencyIndicator = InsertionSort().Sort(data, size);
             break;
         case SortingMethod::MergeSort:
+            efficiencyIndicator = MergeSort().Sort(data, size);
             break;
         case SortingMethod::HeapSort:
+            break;
+        case SortingMethod::CalculationSort:
             break;
         case SortingMethod::StdSort:
             std::sort(data, data + size,
