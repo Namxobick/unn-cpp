@@ -17,9 +17,6 @@ private:
 
     TTableRecord** CreateCopy(TTableRecord** data, size_t size);
     bool IsDataSorted(TTableRecord** data, size_t size);
-    void MakeDataSorted(TTableRecord** data, TTableRecord** copyData, size_t size);
-    void FreeUpMemory(TTableRecord** data, size_t size);
-
 };
 
 
