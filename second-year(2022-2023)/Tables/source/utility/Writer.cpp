@@ -3,28 +3,24 @@
 //
 
 #include "../../include/utility/Writer.h"
-#include "../../include/storage-structure/TSortTable.h"
 
-void Writer::WriteInFile(const std::string& path, TScanTable *scanTable1) {
-    TSortTable* scanTable = new TSortTable(*scanTable1, SortingMethod::MergeSort);
+void Writer::WriteInFile(const std::string& path, TTable *table) {
     std::ofstream outFile;
     outFile.open(path);
     outFile << "Key\tBook One\tBook Two\tBook Three\tBook Four\tEpilogue\tType Symbols\tLanguage" << std::endl;
     std::string key;
-    for (auto it = (scanTable->Reset(), scanTable->GetCurrentPosition()); it == scanTable->IsTabEnded(); scanTable->Next()){
-        auto temp = scanTable->GetKey();
-
-        if (scanTable->GetKey() == "\""  or (int) scanTable->GetKey()[0] == 34)
+    for (table->Reset(); !table->IsTabEnded(); table->Next()){
+        if (table->GetKey() == "\"" or (int) table->GetKey()[0] == 34)
             key = "'";
-        else if (scanTable->GetKey() == "—")
+        else if (table->GetKey() == "—")
             key = "-";
-        else if (scanTable->GetKey() == "\n")
+        else if (table->GetKey() == "\n")
             key = "\\n";
-        else if (scanTable->GetKey() == "\t")
+        else if (table->GetKey() == "\t")
             key = "\\t";
         else
-            key = scanTable->GetKey();
-        outFile << key << '\t' << *scanTable->GetValue() << std::endl;
+            key = table->GetKey();
+        outFile << key << '\t' << *table->GetValue() << std::endl;
     }
     outFile.close();
 }

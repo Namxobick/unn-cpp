@@ -12,7 +12,7 @@
 
 class Writer {
 public:
-    void WriteInFile(const std::string& path, TScanTable* scanTable);
+    void WriteInFile(const std::string& path, TTable* table);
 };
 
 

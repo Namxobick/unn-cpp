@@ -8,7 +8,7 @@ uint64_t QuickSort::Sort(TTableRecord **data, size_t size,
                          const std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> &calculateIndexSupportElement) {
     uint64_t efficiencyIndicator = 0;
     Sort(data, 0, size-1, calculateIndexSupportElement, efficiencyIndicator);
-    return efficiencyIndicator = 0;
+    return efficiencyIndicator;
 }
 
 void QuickSort::Sort(TTableRecord **data, uint32_t indexFirstElement, uint32_t indexLastElement,

@@ -42,6 +42,7 @@ public:
     [[nodiscard]] virtual TKey GetKey() const = 0;
     [[nodiscard]] virtual TDataValue* GetValue() const = 0;
 
+
     friend std::ostream& operator<<(std::ostream& out, TTable& table);
 };
 

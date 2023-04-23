@@ -35,7 +35,7 @@ public:
     [[nodiscard]] TKey GetKey() const override;
     [[nodiscard]] virtual TKey GetKey(Position position) const;
     [[nodiscard]] TDataValue *GetValue() const override;
-    [[nodiscard]] virtual TDataValue* GetValue(Position position) const;
+    [[nodiscard]] TDataValue* GetValue(Position position) const;
 
     friend class TSortTable;
 };

@@ -1,12 +1,7 @@
-#include "include/storage-structure/TScanTable.h"
-#include "include/utility/Writer.h"
-#include "include/utility/perfomance-testing/TestingTScanTable.h"
-
 // voina-i-mir
+
+#include "include/utility/perfomance-testing/TestingTable.h"
+
 int main() {
-    TScanTable scanTable = TScanTable(100000);
-
-    TestingTScanTable().Test("../test.txt", "ветру", &scanTable);
-
-    Writer().WriteInFile("../test.xls", &scanTable);
+    TestingTable().TestAllTables("../voina-i-mir.txt", "ветру");
 }

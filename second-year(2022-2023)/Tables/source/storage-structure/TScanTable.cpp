@@ -29,7 +29,7 @@ bool TScanTable::Insert(TKey key, TDataValue *value) {
         return false;
     }
 
-    if (Find(key) != nullptr) {
+    if (Find(key), GetRetCode() != TAB_NO_RECORD) {
         SetRetCode(TAB_REC_DOUBLE);
         return false;
     }
@@ -45,9 +45,7 @@ bool TScanTable::Insert(TKey key, TDataValue *value) {
 
 void TScanTable::Remove(TKey key) {
 
-    if (Find(key) == nullptr)
-        SetRetCode(TAB_NO_RECORD);
-    else {
+    if (Find(key), GetRetCode() != TAB_NO_RECORD){
         SetRetCode(TAB_OK);
         delete pData[curPosition];
         pData[curPosition] = pData[TTable::size - 1];
@@ -55,5 +53,4 @@ void TScanTable::Remove(TKey key) {
 
         efficiencyIndicator++;
     }
-
 }

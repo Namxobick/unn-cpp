@@ -58,6 +58,7 @@ TTableRecord** MergeSort::Sort(TTableRecord **arrUp, TTableRecord **arrDown, uin
             target[i] = r_buff[r_cur];
             r_cur++;
         }
+        efficiencyIndicator++;
     }
     return target;
 }

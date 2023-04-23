@@ -3,9 +3,10 @@
 //
 
 #include "../../include/utility/InputHandler.h"
+#include "../../include/utility/Writer.h"
 
-void InputHandler::ProcessInput(const std::string& path, TScanTable* scanTable) {
-    _scanTable = scanTable;
+void InputHandler::ProcessInput(const std::string& path, TTable* table) {
+    _table = table;
 
     std::ifstream inFile(path);
 
@@ -32,10 +33,13 @@ void InputHandler::ProcessInput(const std::string& path, TScanTable* scanTable) 
 
             buffer += sym;
             inFile.get(sym);
+
+            if (inFile.eof())
+                break;
         }
 
         bookNumber = DefineBook(buffer, bookNumber);
-        if (!buffer.empty() or buffer == "—")
+        if (buffer.size() > 1 or buffer == "—")
             AddedWordInTable(buffer, bookNumber, typeSymbols, language, counter++);
         AddedWordInTable(std::string(1, sym), bookNumber, TypeSymbols::PUNCTUATION_MARK,
                          Language::NONE, counter++);
@@ -63,9 +67,9 @@ void InputHandler::ProcessNumber(char sym, std::string& buffer, BookNumber bookN
 void InputHandler::AddedWordInTable(const std::string& buffer, BookNumber bookNumber, TypeSymbols typeSymbols,
                                     Language language, uint32_t counter) {
     auto* wordsInWarAndPeace = new TWordsInWarAndPeace(bookNumber, typeSymbols, language,counter);
-    bool result = _scanTable->Insert(buffer, wordsInWarAndPeace);
-    if (!result and _scanTable->GetRetCode() == TAB_REC_DOUBLE){
-        auto value = (TWordsInWarAndPeace*) _scanTable->GetValue(Position::CURRENT);
+    bool result = _table->Insert(buffer, wordsInWarAndPeace);
+    if (!result and _table->GetRetCode() == TAB_REC_DOUBLE){
+        auto value = (TWordsInWarAndPeace*) _table->GetValue();
         value->AddWord(counter, bookNumber);
         delete wordsInWarAndPeace;
     }

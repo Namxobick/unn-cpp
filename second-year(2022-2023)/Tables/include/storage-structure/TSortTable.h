@@ -18,7 +18,7 @@ protected:
 
 public:
     explicit TSortTable(size_t size = 50, SortingMethod sortingMet = SortingMethod::StdSort);
-    TSortTable(const TScanTable& scanTable, SortingMethod sortingMet = SortingMethod::StdSort);
+    explicit TSortTable(const TScanTable& scanTable, SortingMethod sortingMet = SortingMethod::StdSort);
 
     TSortTable& operator=(const TScanTable& scanTable);
     [[nodiscard]] SortingMethod GetSortingMethod() const;
@@ -27,6 +27,9 @@ public:
     TDataValue* Find(TKey key) override;
     bool Insert(TKey key, TDataValue* value) override;
     void Remove(TKey key) override;
+
+private:
+    int64_t BinarySearch(TTableRecord** pData, const TKey& key);
 };
 
 

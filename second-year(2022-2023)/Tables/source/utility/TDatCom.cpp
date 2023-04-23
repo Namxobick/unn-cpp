@@ -13,7 +13,5 @@ TDatCom::TDatCom() {
 }
 
 int TDatCom::GetRetCode() {
-    int code = retCode;
-    retCode = DATA_OK;
-    return code;
+    return retCode;
 }

@@ -8,6 +8,9 @@
 #include "../TTableRecord.h"
 #include "../../../include/utility/sorting/BubbleSort.h"
 #include "../../../include/utility/sorting/InsertionSort.h"
+#include "../../../include/utility/sorting/QuickSort.h"
+#include "../../../include/utility/sorting/MergeSort.h"
+#include "../../../include/utility/sorting/HeapSort.h"
 
 enum class SortingMethod{
     BubbleSort,
@@ -22,6 +25,7 @@ class Sorting {
 private:
     const std::string ERROR_MESSAGE = "The sorting method does not match the number of parameters";
 public:
+    Sorting& operator=(const Sorting& sort);
     uint64_t Sort(SortingMethod sortingMethod, TTableRecord** &data, size_t size);
     uint64_t Sort(SortingMethod sortingMethod, TTableRecord** data, size_t size,
                   const std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> &calculateIndexSupportElement);
