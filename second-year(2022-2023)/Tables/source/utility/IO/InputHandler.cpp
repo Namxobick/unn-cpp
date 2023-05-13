@@ -2,8 +2,8 @@
 // Created by Андрей Юрин on 07.04.2023.
 //
 
-#include "../../include/utility/InputHandler.h"
-#include "../../include/utility/Writer.h"
+#include "../../../include/utility/IO/InputHandler.h"
+#include "../../../include/utility/IO/Writer.h"
 
 void InputHandler::ProcessInput(const std::string& path, TTable* table) {
     _table = table;

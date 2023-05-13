@@ -23,8 +23,7 @@ TDataValue *TScanTable::Find(TKey key) {
 }
 
 bool TScanTable::Insert(TKey key, TDataValue *value) {
-    if (IsFull())
-    {
+    if (IsFull()){
         SetRetCode(TAB_FULL);
         return false;
     }
@@ -44,7 +43,6 @@ bool TScanTable::Insert(TKey key, TDataValue *value) {
 }
 
 void TScanTable::Remove(TKey key) {
-
     if (Find(key), GetRetCode() != TAB_NO_RECORD){
         SetRetCode(TAB_OK);
         delete pData[curPosition];

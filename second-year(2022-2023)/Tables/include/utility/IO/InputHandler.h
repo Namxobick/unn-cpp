@@ -7,8 +7,8 @@
 
 #include <iostream>
 #include <fstream>
-#include "../storage-structure/TScanTable.h"
-#include "../data-structure/TWordsInWarAndPeace.h"
+#include "../../storage-structure/TScanTable.h"
+#include "../../data-structure/TWordsInWarAndPeace.h"
 
 class InputHandler {
 private:

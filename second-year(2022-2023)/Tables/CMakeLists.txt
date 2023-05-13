@@ -13,9 +13,9 @@ add_executable(
         source/utility/TArrayTable.cpp include/utility/TArrayTable.h
         source/storage-structure/TScanTable.cpp include/storage-structure/TScanTable.h
         source/data-structure/TWordsInWarAndPeace.cpp include/data-structure/TWordsInWarAndPeace.h
-        source/utility/InputHandler.cpp include/utility/InputHandler.h
+        source/utility/IO/InputHandler.cpp include/utility/IO/InputHandler.h
         source/utility/perfomance-testing/Timer.cpp include/utility/perfomance-testing/Timer.h
-        source/utility/Writer.cpp include/utility/Writer.h
+        source/utility/IO/Writer.cpp include/utility/IO/Writer.h
         source/utility/perfomance-testing/TestingTable.cpp include/utility/perfomance-testing/TestingTable.h
         source/storage-structure/TSortTable.cpp include/storage-structure/TSortTable.h
         source/utility/sorting/Sorting.cpp include/utility/sorting/Sorting.h
@@ -25,4 +25,6 @@ add_executable(
         source/utility/sorting/MergeSort.cpp include/utility/sorting/MergeSort.h
         source/utility/sorting/HeapSort.cpp include/utility/sorting/HeapSort.h
         source/utility/perfomance-testing/TestingConversion.cpp include/utility/perfomance-testing/TestingConversion.h
+        source/utility/THashTable.cpp include/utility/THashTable.h
+        source/storage-structure/TListHashTable.cpp include/storage-structure/TListHashTable.h
 )

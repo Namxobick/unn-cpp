@@ -10,7 +10,6 @@
 #define TAB_FULL (-102)
 #define TAB_NO_RECORD (-103)
 #define TAB_REC_DOUBLE (-104)
-#define TAB_NO_MEM (-105)
 
 #include <iostream>
 #include "TDatCom.h"

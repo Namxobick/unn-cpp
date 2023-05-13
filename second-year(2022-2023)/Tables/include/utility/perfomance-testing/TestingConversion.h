@@ -10,6 +10,7 @@
 #include "../sorting/Sorting.h"
 #include "../../../include/utility/perfomance-testing/Timer.h"
 #include "../../../include/storage-structure/TSortTable.h"
+#include "../../storage-structure/TListHashTable.h"
 
 class TestingConversion {
 public:

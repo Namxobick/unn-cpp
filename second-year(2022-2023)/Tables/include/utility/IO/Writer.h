@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "../storage-structure/TScanTable.h"
+#include "../../storage-structure/TScanTable.h"
 
 
 class Writer {

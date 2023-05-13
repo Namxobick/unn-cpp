@@ -31,32 +31,32 @@ TTableRecord** MergeSort::Sort(TTableRecord **arrUp, TTableRecord **arrDown, uin
 
     uint32_t indexMiddleElement = (indexFirstElement + indexLastElement) / 2;
 
-    TTableRecord** l_buff = Sort(arrUp, arrDown, indexFirstElement, indexMiddleElement, efficiencyIndicator);
-    TTableRecord** r_buff = Sort(arrUp, arrDown, indexMiddleElement + 1, indexLastElement, efficiencyIndicator);
+    TTableRecord** leftBuffer = Sort(arrUp, arrDown, indexFirstElement, indexMiddleElement, efficiencyIndicator);
+    TTableRecord** rightBuffer = Sort(arrUp, arrDown, indexMiddleElement + 1, indexLastElement, efficiencyIndicator);
 
-    TTableRecord** target = l_buff == arrUp ? arrDown : arrUp;
+    TTableRecord** target = leftBuffer == arrUp ? arrDown : arrUp;
 
-    uint32_t l_cur = indexFirstElement;
-    uint32_t r_cur = indexMiddleElement + 1;
+    uint32_t leftCur = indexFirstElement;
+    uint32_t rightCur = indexMiddleElement + 1;
 
     for (uint32_t i = indexFirstElement; i <= indexLastElement; ++i){
-        if (l_cur <= indexMiddleElement and r_cur <= indexLastElement){
-            if (*l_buff[l_cur] < *r_buff[r_cur]){
-                target[i] = l_buff[l_cur];
-                l_cur++;
+        if (leftCur <= indexMiddleElement and rightCur <= indexLastElement){
+            if (*leftBuffer[leftCur] < *rightBuffer[rightCur]){
+                target[i] = leftBuffer[leftCur];
+                leftCur++;
             }
             else{
-                target[i] = r_buff[r_cur];
-                r_cur++;
+                target[i] = rightBuffer[rightCur];
+                rightCur++;
             }
         }
-        else if (l_cur <= indexMiddleElement){
-            target[i] = l_buff[l_cur];
-            l_cur++;
+        else if (leftCur <= indexMiddleElement){
+            target[i] = leftBuffer[leftCur];
+            leftCur++;
         }
         else{
-            target[i] = r_buff[r_cur];
-            r_cur++;
+            target[i] = rightBuffer[rightCur];
+            rightCur++;
         }
         efficiencyIndicator++;
     }
@@ -80,4 +80,3 @@ bool MergeSort::IsDataSorted(TTableRecord **data, size_t size) {
     }
     return true;
 }
-

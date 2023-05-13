@@ -34,6 +34,7 @@ public:
 
     friend class TScanTable;
     friend class TArrayTable;
+    friend class TListHashTable;
 };
 
 

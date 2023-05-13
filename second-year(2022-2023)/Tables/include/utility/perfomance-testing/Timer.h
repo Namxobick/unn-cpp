@@ -8,7 +8,7 @@
 #include <iostream>
 #include <utility>
 #include "../../storage-structure/TScanTable.h"
-#include "../InputHandler.h"
+#include "../IO/InputHandler.h"
 #include "../sorting/Sorting.h"
 
 class Timer {

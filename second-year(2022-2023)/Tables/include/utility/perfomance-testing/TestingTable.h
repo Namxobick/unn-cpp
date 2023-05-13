@@ -6,9 +6,10 @@
 #define TABLES_TESTINGTABLE_H
 
 #include "../../storage-structure/TScanTable.h"
-#include "../../../include/utility/perfomance-testing/Timer.h"
 #include "../../../include/storage-structure/TSortTable.h"
-#include "../../../include/utility/Writer.h"
+#include "../../storage-structure/TListHashTable.h"
+#include "../../../include/utility/perfomance-testing/Timer.h"
+#include "../IO/Writer.h"
 #include "../../../include/utility/perfomance-testing/TestingConversion.h"
 
 class TestingTable {

@@ -3,19 +3,17 @@
 //
 
 #include "../../../include/utility/perfomance-testing/TestingTable.h"
-#include <format>
-#include <iostream>
 
 
 void TestingTable::TestAllTables(const std::string &path, const std::string &word) {
     auto scanTable = new TScanTable(100000);
     auto sortTable = new TSortTable(100000);
-
+    auto listHashTable = new TListHashTable(100000);
 
     std::cout << "~~~~~~~Start of testing ScanTable~~~~~~~" << std::endl;
     TestingTable().Test(path, word, scanTable);
     Writer().WriteInFile(path.substr(0, path.size() - 4) + "-scanTable.xls", scanTable);
-    std::cout << "~~~~~~~End of testing ScanTable<<~~~~~~~" <<std::endl << std::endl;
+    std::cout << "~~~~~~~End of testing ScanTable~~~~~~~" <<std::endl << std::endl;
 
     std::cout << "~~~~~~~Start of testing conversion ScanTable to SortTable~~~~~~~" <<std::endl;
     TestingConversion().TestConversionScanToSortTable(scanTable);
@@ -26,9 +24,14 @@ void TestingTable::TestAllTables(const std::string &path, const std::string &wor
     Writer().WriteInFile(path.substr(0, path.size() - 4) + "-sortTable.xls", sortTable);
     std::cout << "~~~~~~~End of testing SortTable~~~~~~~" <<std::endl << std::endl;
 
+    std::cout << "~~~~~~~Start of testing ListHashTable~~~~~~~" <<std::endl;
+    TestingTable().Test(path, word, listHashTable);
+    Writer().WriteInFile(path.substr(0, path.size() - 4) + "-listHashTable.xls", listHashTable);
+    std::cout << "~~~~~~~End of testing ListHashTable~~~~~~~" <<std::endl << std::endl;
 
     delete scanTable;
     delete sortTable;
+    delete listHashTable;
 }
 
 void TestingTable::Test(const std::string& path, const std::string& word, TTable* table) {
