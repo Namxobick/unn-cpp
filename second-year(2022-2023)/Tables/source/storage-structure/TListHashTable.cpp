@@ -21,17 +21,16 @@ bool TListHashTable::IsFull() const {
 
 TDataValue *TListHashTable::Find(TKey key) {
     SetRetCode(TAB_OK);
-    curList = HashFunction(key) % size;
+    curList = Hash(key) % size;
 
-    if (!pData[curList].empty())
-        for (auto iter = pData[curList].begin(); iter != pData[curList].end(); iter++) {
-            efficiencyIndicator++;
-            auto record = *iter;
-            if (record->key == key) {
-                curIter = iter;
-                return record->value;
-            }
+    for (auto iter = pData[curList].begin(); iter != pData[curList].end(); ++iter) {
+        efficiencyIndicator++;
+        auto record = *iter;
+        if (record->key == key) {
+            curIter = iter;
+            return record->value;
         }
+    }
 
     SetRetCode(TAB_NO_RECORD);
     return nullptr;
@@ -77,8 +76,8 @@ int TListHashTable::Next() {
 }
 
 int TListHashTable::IsListEnded() const {
-    auto temp = curIter;
-    return ++temp == pData[curList].end();
+    auto tempIter = curIter;
+    return ++tempIter == pData[curList].end();
 }
 
 int TListHashTable::IsTabEnded() const {

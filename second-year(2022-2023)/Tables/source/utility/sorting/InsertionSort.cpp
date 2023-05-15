@@ -4,7 +4,10 @@
 
 #include "../../../include/utility/sorting/InsertionSort.h"
 
-uint64_t InsertionSort::Sort(TTableRecord **data, size_t size) {
+uint64_t InsertionSort::Sort(TTableRecord **&data, size_t size) {
+    if (size == 0)
+        return 0;
+
     uint64_t efficiencyIndicator = 0;
 
     for (uint32_t i = 1; i < size; ++i) {

@@ -4,7 +4,10 @@
 
 #include "../../../include/utility/sorting/HeapSort.h"
 
-uint64_t HeapSort::Sort(TTableRecord **data, size_t size) {
+uint64_t HeapSort::Sort(TTableRecord **&data, size_t size) {
+    if (size == 0)
+        return 0;
+
     uint64_t efficiencyIndicator = 0;
 
     for (auto i = (int64_t) size / 2 - 1; i >= 0; --i) {

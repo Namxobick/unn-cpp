@@ -4,7 +4,10 @@
 
 #include "../../../include/utility/sorting/BubbleSort.h"
 
-uint64_t BubbleSort::Sort(TTableRecord **data, size_t size) {
+uint64_t BubbleSort::Sort(TTableRecord **&data, size_t size) {
+    if (size == 0)
+        return 0;
+
     uint64_t efficiencyIndicator = 0;
     for (uint32_t i = 0; i < size - 1; ++i){
         bool isSorted = true;

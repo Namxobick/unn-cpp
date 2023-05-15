@@ -4,10 +4,12 @@
 
 #include "../../../include/utility/sorting/MergeSort.h"
 
-uint32_t MergeSort::Sort(TTableRecord **&data, size_t size) {
+uint64_t MergeSort::Sort(TTableRecord **&data, size_t size) {
+    if (size == 0)
+        return 0;
+
     auto copyData = CreateCopy(data, size);
     uint64_t efficiencyIndicator = 0;
-
     Sort(data, copyData, 0, size-1, efficiencyIndicator);
 
     if (!IsDataSorted(data, size)) {

@@ -18,7 +18,6 @@ add_executable(
         source/utility/IO/Writer.cpp include/utility/IO/Writer.h
         source/utility/perfomance-testing/TestingTable.cpp include/utility/perfomance-testing/TestingTable.h
         source/storage-structure/TSortTable.cpp include/storage-structure/TSortTable.h
-        source/utility/sorting/Sorting.cpp include/utility/sorting/Sorting.h
         source/utility/sorting/BubbleSort.cpp include/utility/sorting/BubbleSort.h
         source/utility/sorting/InsertionSort.cpp include/utility/sorting/InsertionSort.h
         source/utility/sorting/QuickSort.cpp include/utility/sorting/QuickSort.h
@@ -27,4 +26,4 @@ add_executable(
         source/utility/perfomance-testing/TestingConversion.cpp include/utility/perfomance-testing/TestingConversion.h
         source/utility/THashTable.cpp include/utility/THashTable.h
         source/storage-structure/TListHashTable.cpp include/storage-structure/TListHashTable.h
-)
+        include/utility/hash-function/IHashFunction.h source/utility/hash-function/StringHashFunction.cpp include/utility/hash-function/StringHashFunction.h include/utility/sorting/ISorting.h source/utility/sorting/StdSort.cpp include/utility/sorting/StdSort.h)

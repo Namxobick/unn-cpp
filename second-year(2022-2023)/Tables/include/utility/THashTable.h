@@ -7,16 +7,16 @@
 
 
 #include "TTable.h"
+#include "hash-function/StringHashFunction.h"
 
 class THashTable: public TTable{
 private:
-    uint32_t _primeNumber; // A prime number approximately equal to the number of characters in the input alphabet.
-
+    StringHashFunction _stringHashFunction;
 public:
     explicit THashTable(uint32_t primeNumber = 131);
 
 protected:
-    virtual uint64_t HashFunction(const TKey& key);
+    uint64_t Hash(const TKey& key);
 };
 
 

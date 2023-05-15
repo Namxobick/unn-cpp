@@ -7,7 +7,7 @@
 
 
 #include "../../storage-structure/TScanTable.h"
-#include "../sorting/Sorting.h"
+#include "../sorting/ISorting.h"
 #include "../../../include/utility/perfomance-testing/Timer.h"
 #include "../../../include/storage-structure/TSortTable.h"
 #include "../../storage-structure/TListHashTable.h"

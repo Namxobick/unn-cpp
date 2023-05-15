@@ -6,11 +6,11 @@
 #define TABLES_INSERTIONSORT_H
 
 
-#include "../TTableRecord.h"
+#include "ISorting.h"
 
-class InsertionSort{
+class InsertionSort: public ISorting{
 public:
-    uint64_t Sort(TTableRecord** data, size_t size);
+    uint64_t Sort(TTableRecord** &data, size_t size) override;
 };
 
 

@@ -5,11 +5,11 @@
 #ifndef TABLES_MERGESORT_H
 #define TABLES_MERGESORT_H
 
-#include "../TTableRecord.h"
+#include "ISorting.h"
 
-class MergeSort {
+class MergeSort: public ISorting {
 public:
-    uint32_t Sort(TTableRecord** &data, size_t size);
+    uint64_t Sort(TTableRecord** &data, size_t size);
 
 private:
     TTableRecord** Sort(TTableRecord** arrUp, TTableRecord** arrDown, uint32_t indexFirstElement, uint32_t indexLastElement,

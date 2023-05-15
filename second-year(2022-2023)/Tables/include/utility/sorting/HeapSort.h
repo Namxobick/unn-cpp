@@ -6,11 +6,11 @@
 #define TABLES_HEAPSORT_H
 
 
-#include "../TTableRecord.h"
+#include "ISorting.h"
 
-class HeapSort {
+class HeapSort : public ISorting{
 public:
-    uint64_t Sort(TTableRecord** data, size_t size);
+    uint64_t Sort(TTableRecord** &data, size_t size) override;
 
 private:
     void Heapify(TTableRecord** data, size_t size, uint32_t index, uint64_t& efficiencyIndicator);

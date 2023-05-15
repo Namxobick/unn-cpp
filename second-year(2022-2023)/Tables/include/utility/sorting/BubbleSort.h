@@ -6,11 +6,12 @@
 #define TABLES_BUBBLESORT_H
 
 
-#include "../TTableRecord.h"
+#include "ISorting.h"
 
-class BubbleSort {
+class BubbleSort : public ISorting{
 public:
-    uint64_t Sort(TTableRecord** data, size_t size);
+    ~BubbleSort() override = default;
+    uint64_t Sort(TTableRecord** &data, size_t size) override;
 };
 
 

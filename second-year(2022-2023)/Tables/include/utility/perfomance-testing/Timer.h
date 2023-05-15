@@ -9,7 +9,7 @@
 #include <utility>
 #include "../../storage-structure/TScanTable.h"
 #include "../IO/InputHandler.h"
-#include "../sorting/Sorting.h"
+#include "../sorting/ISorting.h"
 
 class Timer {
 public:

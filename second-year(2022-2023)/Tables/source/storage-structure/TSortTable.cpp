@@ -6,10 +6,14 @@
 
 TSortTable::TSortTable(size_t size, SortingMethod sortingMet) : TScanTable(size) {
     sortingMethod = sortingMet;
+    sorting = nullptr;
+    ChangeSorting();
 }
 
 TSortTable::TSortTable(const TScanTable &scanTable, SortingMethod sortingMet) {
     sortingMethod = sortingMet;
+    sorting = nullptr;
+    ChangeSorting();
     *this = scanTable;
 }
 
@@ -37,12 +41,7 @@ TSortTable &TSortTable::operator=(const TScanTable &scanTable) {
 }
 
 void TSortTable::Sort() {
-    if (sortingMethod == SortingMethod::QuickSort)
-        efficiencyIndicator += sorting.Sort(sortingMethod, pData, TTable::size,
-                                            [](uint32_t indexFirstElement, uint32_t indexLastElement){
-                                                return (indexFirstElement + indexLastElement) / 2; });
-    else
-        efficiencyIndicator += sorting.Sort(sortingMethod, pData, TTable::size);
+    efficiencyIndicator += sorting->Sort(pData, TTable::size);
 }
 
 SortingMethod TSortTable::GetSortingMethod() const {
@@ -51,6 +50,7 @@ SortingMethod TSortTable::GetSortingMethod() const {
 
 void TSortTable::SetSortingMethod(SortingMethod sortingMethod) {
     this->sortingMethod = sortingMethod;
+    ChangeSorting();
 }
 
 TDataValue *TSortTable::Find(TKey key) {
@@ -120,4 +120,31 @@ int64_t TSortTable::BinarySearch(TTableRecord **pData, const TKey& key) {
 
     SetRetCode(TAB_NO_RECORD);
     return ++indexRightElement;
+}
+
+void TSortTable::ChangeSorting() {
+    delete sorting;
+    switch (sortingMethod) {
+        case SortingMethod::BubbleSort:
+            sorting = new BubbleSort();
+            break;
+        case SortingMethod::InsertingSort:
+            sorting = new InsertionSort();
+            break;
+        case SortingMethod::MergeSort:
+            sorting = new MergeSort();
+            break;
+        case SortingMethod::HeapSort:
+            sorting = new HeapSort();
+            break;
+        case SortingMethod::StdSort:
+            sorting = new StdSort();
+            break;
+        case SortingMethod::QuickSort:
+            std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> func = [](uint32_t indexFirstElement, uint32_t indexLastElement) {
+                return (indexFirstElement + indexLastElement) / 2;
+            };
+            sorting = new QuickSort(func);
+            break;
+    }
 }

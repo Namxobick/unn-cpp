@@ -6,13 +6,19 @@
 #define TABLES_TSORTTABLE_H
 
 #include "TScanTable.h"
-#include "../utility/sorting/Sorting.h"
+#include "../utility/sorting/ISorting.h"
+#include "../../include/utility/sorting/BubbleSort.h"
+#include "../../include/utility/sorting/HeapSort.h"
+#include "../../include/utility/sorting/InsertionSort.h"
+#include "../../include/utility/sorting/MergeSort.h"
+#include "../../include/utility/sorting/QuickSort.h"
+#include "../../include/utility/sorting/StdSort.h"
+
 
 class TSortTable : public TScanTable{
 protected:
     SortingMethod sortingMethod;
-    Sorting sorting;
-
+    ISorting* sorting;
 protected:
     void Sort();
 
@@ -29,6 +35,7 @@ public:
     void Remove(TKey key) override;
 
 private:
+    void ChangeSorting();
     int64_t BinarySearch(TTableRecord** pData, const TKey& key);
 };
 
