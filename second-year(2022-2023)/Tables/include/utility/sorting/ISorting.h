@@ -5,7 +5,7 @@
 #ifndef TABLES_ISORTING_H
 #define TABLES_ISORTING_H
 
-#include "../TTableRecord.h"
+#include "../../data-structure/utility/TTableRecord.h"
 
 enum class SortingMethod{
     BubbleSort,

@@ -9,6 +9,8 @@
 #include <fstream>
 #include "../../storage-structure/TScanTable.h"
 #include "../../data-structure/TWordsInWarAndPeace.h"
+#include "../../../include/utility/IO/Writer.h"
+#include "../MyException.h"
 
 class InputHandler {
 private:

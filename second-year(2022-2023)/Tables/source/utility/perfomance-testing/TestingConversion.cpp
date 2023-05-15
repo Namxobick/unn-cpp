@@ -43,7 +43,6 @@ void TestingConversion::TestSorting(TScanTable *scanTable, SortingMethod sorting
 
     auto efficiency = Timer().MarkTime([](TScanTable *scanTable, SortingMethod sortingMethod){return TSortTable(*scanTable, sortingMethod).GetEfficiencyIndicator();},
                                        scanTable, sortingMethod);
-
     std::cout << "Number of records " << scanTable->GetNumberOfEntries() << std::endl;
     std::cout << "The elapsed time is " << efficiency.first << " seconds" << std::endl;
     std::cout << "The number of operations spent is equal to " << efficiency.second << std::endl;

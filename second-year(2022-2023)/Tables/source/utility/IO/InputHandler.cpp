@@ -3,7 +3,6 @@
 //
 
 #include "../../../include/utility/IO/InputHandler.h"
-#include "../../../include/utility/IO/Writer.h"
 
 void InputHandler::ProcessInput(const std::string& path, TTable* table) {
     _table = table;
@@ -11,7 +10,7 @@ void InputHandler::ProcessInput(const std::string& path, TTable* table) {
     std::ifstream inFile(path);
 
     if (!inFile.is_open())
-        throw "The file did not open";
+        throw MyException("The file didn't open");
 
     std::string buffer;
     uint32_t counter = 1;

@@ -10,24 +10,16 @@ void TestingTable::TestAllTables(const std::string &path, const std::string &wor
     auto sortTable = new TSortTable(100000);
     auto listHashTable = new TListHashTable(100000);
 
-    std::cout << "~~~~~~~Start of testing ScanTable~~~~~~~" << std::endl;
-    TestingTable().Test(path, word, scanTable);
-    Writer().WriteInFile(path.substr(0, path.size() - 4) + "-scanTable.xls", scanTable);
-    std::cout << "~~~~~~~End of testing ScanTable~~~~~~~" <<std::endl << std::endl;
+    TestOneTable("scanTable", path, word, scanTable);
 
     std::cout << "~~~~~~~Start of testing conversion ScanTable to SortTable~~~~~~~" <<std::endl;
     TestingConversion().TestConversionScanToSortTable(scanTable);
     std::cout << "~~~~~~~End of testing conversion ScanTable to SortTable~~~~~~~" <<std::endl << std::endl;
 
-    std::cout << "~~~~~~~Start of testing SortTable~~~~~~~" <<std::endl;
-    TestingTable().Test(path, word, sortTable);
-    Writer().WriteInFile(path.substr(0, path.size() - 4) + "-sortTable.xls", sortTable);
-    std::cout << "~~~~~~~End of testing SortTable~~~~~~~" <<std::endl << std::endl;
+    TestOneTable("sortTable", path, word, sortTable);
 
-    std::cout << "~~~~~~~Start of testing ListHashTable~~~~~~~" <<std::endl;
-    TestingTable().Test(path, word, listHashTable);
-    Writer().WriteInFile(path.substr(0, path.size() - 4) + "-listHashTable.xls", listHashTable);
-    std::cout << "~~~~~~~End of testing ListHashTable~~~~~~~" <<std::endl << std::endl;
+    TestOneTable("listHashTable", path, word, listHashTable);
+
 
     delete scanTable;
     delete sortTable;
@@ -47,6 +39,15 @@ void TestingTable::Test(const std::string& path, const std::string& word, TTable
 
     TestOneMethod([](const std::string& word, TTable* table){table->Insert(word, new TWordsInWarAndPeace());},
                   "insertion", word);
+}
+
+void TestingTable::TestOneTable(const std::string &tableName, const std::string &path, const std::string &word,
+                                TTable *table) {
+    std::cout << "~~~~~~~Start of testing " << tableName << "~~~~~~~" << std::endl;
+    TestingTable().Test(path, word, table);
+    auto fileName = path.substr(0, path.size() - 4) + "-" + tableName + ".xls";
+    Writer().WriteInFile(fileName, table);
+    std::cout << "~~~~~~~End of testing " << tableName << "~~~~~~~" << std::endl << std::endl;
 }
 
 void TestingTable::TestOneMethod(const std::function<void(const std::string &, TTable *)> &function,

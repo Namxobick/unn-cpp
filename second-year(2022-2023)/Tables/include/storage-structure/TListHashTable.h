@@ -6,7 +6,7 @@
 #define TABLES_TLISTHASHTABLE_H
 
 #include <list>
-#include "../utility/THashTable.h"
+#include "utility/THashTable.h"
 
 class TListHashTable : public THashTable{
 protected:

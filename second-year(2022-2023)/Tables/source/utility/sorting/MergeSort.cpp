@@ -7,18 +7,14 @@
 uint64_t MergeSort::Sort(TTableRecord **&data, size_t size) {
     if (size == 0)
         return 0;
-
     auto copyData = CreateCopy(data, size);
     uint64_t efficiencyIndicator = 0;
     Sort(data, copyData, 0, size-1, efficiencyIndicator);
 
-    if (!IsDataSorted(data, size)) {
-        delete[] data;
-        data = copyData;
-    }
-    else{
-        delete[] copyData;
-    }
+    if (!IsDataSorted(data, size))
+        std::copy(copyData, copyData + size, data);
+
+    delete[] copyData;
 
     return efficiencyIndicator;
 }
@@ -76,7 +72,7 @@ TTableRecord **MergeSort::CreateCopy(TTableRecord **data, size_t size) {
 
 bool MergeSort::IsDataSorted(TTableRecord **data, size_t size) {
     for (uint32_t i = 0; i < size - 1; ++i){
-        if (data[i] > data[i + 1]) {
+        if (data[i]->GetKey() > data[i + 1]->GetKey()) {
             return false;
         }
     }

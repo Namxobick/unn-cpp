@@ -2,7 +2,7 @@
 // Created by Андрей Юрин on 20.03.2023.
 //
 
-#include "../../include/utility/TTableRecord.h"
+#include "../../../include/data-structure/utility/TTableRecord.h"
 
 void TTableRecord::Print(std::ostream &ostream) const {
     ostream << key << " " << *value;

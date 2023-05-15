@@ -7,7 +7,7 @@
 
 
 #include "TTable.h"
-#include "hash-function/StringHashFunction.h"
+#include "../../utility/hash-function/StringHashFunction.h"
 
 class THashTable: public TTable{
 private:

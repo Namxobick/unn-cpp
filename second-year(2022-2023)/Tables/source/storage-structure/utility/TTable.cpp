@@ -2,7 +2,7 @@
 // Created by Андрей Юрин on 20.03.2023.
 //
 
-#include "../../include/utility/TTable.h"
+#include "../../../include/storage-structure/utility/TTable.h"
 
 TTable::TTable() {
     size = 0;

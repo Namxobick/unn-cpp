@@ -60,7 +60,7 @@ void TListHashTable::Remove(TKey key) {
 
 int TListHashTable::Reset() {
     this->curList = 0;
-    while (pData[curList].empty() and !IsListEnded()) curList++;
+    while (pData[curList].empty() and !IsTabEnded()) curList++;
     this->curIter = pData[curList].begin();
     return IsTabEnded();
 }
@@ -69,7 +69,7 @@ int TListHashTable::Next() {
     if (!IsListEnded())
         this->curIter++;
     else if (!IsTabEnded()) {
-        while (pData[++curList].empty() and !IsListEnded());
+        while (pData[++curList].empty() and !IsTabEnded());
         this->curIter = pData[curList].begin();
     }
     return IsTabEnded();

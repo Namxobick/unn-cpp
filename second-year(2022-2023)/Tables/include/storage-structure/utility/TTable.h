@@ -12,9 +12,9 @@
 #define TAB_REC_DOUBLE (-104)
 
 #include <iostream>
-#include "TDatCom.h"
-#include "TDataValue.h"
-#include "TTableRecord.h"
+#include "../../data-structure/utility/TDatCom.h"
+#include "../../data-structure/utility/TDataValue.h"
+#include "../../data-structure/utility/TTableRecord.h"
 
 class TTable: public TDatCom {
 protected:

@@ -6,7 +6,7 @@
 #define TABLES_TSCANTABLE_H
 
 
-#include "../utility/TArrayTable.h"
+#include "utility/TArrayTable.h"
 
 class TScanTable : public TArrayTable{
 public:

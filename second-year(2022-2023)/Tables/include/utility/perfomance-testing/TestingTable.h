@@ -20,6 +20,7 @@ public:
     void TestAllTables(const std::string& path, const std::string& word);
 
 private:
+    void TestOneTable(const std::string& tableName, const std::string& path, const std::string& word, TTable* table);
     void TestOneMethod(const std::function<void(const std::string& word, TTable* table)> &function,
                        const std::string& nameMethod, const std::string& str);
 

@@ -2,7 +2,7 @@
 // Created by Андрей Юрин on 27.03.2023.
 //
 
-#include "../../include/utility/TArrayTable.h"
+#include "../../../include/storage-structure/utility/TArrayTable.h"
 
 TArrayTable::TArrayTable(size_t size) {
     this->size = size;

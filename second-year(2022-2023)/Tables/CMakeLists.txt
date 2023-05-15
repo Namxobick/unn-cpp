@@ -6,11 +6,11 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(
         Tables
         main.cpp
-        source/utility/TDataValue.cpp include/utility/TDataValue.h
-        source/utility/TTableRecord.cpp include/utility/TTableRecord.h
-        source/utility/TTable.cpp include/utility/TTable.h
-        source/utility/TDatCom.cpp include/utility/TDatCom.h
-        source/utility/TArrayTable.cpp include/utility/TArrayTable.h
+        source/data-structure/utility/TDataValue.cpp include/data-structure/utility/TDataValue.h
+        source/data-structure/utility/TTableRecord.cpp include/data-structure/utility/TTableRecord.h
+        source/storage-structure/utility/TTable.cpp include/storage-structure/utility/TTable.h
+        source/data-structure/utility/TDatCom.cpp include/data-structure/utility/TDatCom.h
+        source/storage-structure/utility/TArrayTable.cpp include/storage-structure/utility/TArrayTable.h
         source/storage-structure/TScanTable.cpp include/storage-structure/TScanTable.h
         source/data-structure/TWordsInWarAndPeace.cpp include/data-structure/TWordsInWarAndPeace.h
         source/utility/IO/InputHandler.cpp include/utility/IO/InputHandler.h
@@ -24,6 +24,10 @@ add_executable(
         source/utility/sorting/MergeSort.cpp include/utility/sorting/MergeSort.h
         source/utility/sorting/HeapSort.cpp include/utility/sorting/HeapSort.h
         source/utility/perfomance-testing/TestingConversion.cpp include/utility/perfomance-testing/TestingConversion.h
-        source/utility/THashTable.cpp include/utility/THashTable.h
+        source/storage-structure/utility/THashTable.cpp include/storage-structure/utility/THashTable.h
         source/storage-structure/TListHashTable.cpp include/storage-structure/TListHashTable.h
-        include/utility/hash-function/IHashFunction.h source/utility/hash-function/StringHashFunction.cpp include/utility/hash-function/StringHashFunction.h include/utility/sorting/ISorting.h source/utility/sorting/StdSort.cpp include/utility/sorting/StdSort.h)
+        include/utility/hash-function/IHashFunction.h
+        source/utility/hash-function/StringHashFunction.cpp include/utility/hash-function/StringHashFunction.h
+        include/utility/sorting/ISorting.h
+        source/utility/sorting/StdSort.cpp include/utility/sorting/StdSort.h
+        source/utility/MyException.cpp include/utility/MyException.h)

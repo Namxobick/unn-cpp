@@ -2,7 +2,7 @@
 // Created by Андрей Юрин on 27.03.2023.
 //
 
-#include "../../include/utility/TDatCom.h"
+#include "../../../include/data-structure/utility/TDatCom.h"
 
 int TDatCom::SetRetCode(int retCode) {
     return this->retCode = retCode;
