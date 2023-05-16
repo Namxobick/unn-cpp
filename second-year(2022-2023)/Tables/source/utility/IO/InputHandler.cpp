@@ -40,8 +40,9 @@ void InputHandler::ProcessInput(const std::string& path, TTable* table) {
         bookNumber = DefineBook(buffer, bookNumber);
         if (buffer.size() > 1 or buffer == "—")
             AddedWordInTable(buffer, bookNumber, typeSymbols, language, counter++);
-        AddedWordInTable(std::string(1, sym), bookNumber, TypeSymbols::PUNCTUATION_MARK,
-                         Language::NONE, counter++);
+        if (!(std::find(PUNCTUATION_MARK.begin(), PUNCTUATION_MARK.end(), sym) == PUNCTUATION_MARK.end()))
+            AddedWordInTable(std::string(1, sym), bookNumber, TypeSymbols::PUNCTUATION_MARK,
+                            Language::NONE, counter++);
 
         buffer.clear();
     }

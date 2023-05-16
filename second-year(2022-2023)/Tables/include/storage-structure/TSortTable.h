@@ -30,7 +30,7 @@ public:
     [[nodiscard]] SortingMethod GetSortingMethod() const;
     void SetSortingMethod(SortingMethod sortingMethod);
 
-    TDataValue* Find(TKey key) override;
+    std::optional<TDataValue*> Find(TKey key) override;
     bool Insert(TKey key, TDataValue* value) override;
     void Remove(TKey key) override;
 

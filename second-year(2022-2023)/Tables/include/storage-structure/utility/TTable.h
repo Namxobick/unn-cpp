@@ -30,7 +30,7 @@ public:
     [[nodiscard]] bool IsEmpty() const;
 
     [[nodiscard]] virtual bool IsFull() const = 0;
-    virtual TDataValue* Find(TKey key) = 0;
+    virtual std::optional<TDataValue*> Find(TKey key) = 0;
     virtual bool Insert(TKey key, TDataValue* value) = 0;
     virtual void Remove(TKey key) = 0;
 

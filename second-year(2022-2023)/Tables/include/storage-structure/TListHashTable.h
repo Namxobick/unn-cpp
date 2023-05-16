@@ -21,7 +21,7 @@ public:
     [[nodiscard]] size_t GetSize() const;
     [[nodiscard]] bool IsFull() const override;
 
-    TDataValue* Find(TKey key) override;
+    std::optional<TDataValue*> Find(TKey key) override;
     bool Insert(TKey key, TDataValue* value) override;
     void Remove(TKey key) override;
 

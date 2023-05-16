@@ -53,7 +53,7 @@ void TSortTable::SetSortingMethod(SortingMethod sortingMethod) {
     ChangeSorting();
 }
 
-TDataValue *TSortTable::Find(TKey key) {
+std::optional<TDataValue*> TSortTable::Find(TKey key) {
     SetRetCode(TAB_OK);
     int64_t indexRightElement = BinarySearch(pData, key);
     if (GetRetCode() != TAB_NO_RECORD)
@@ -61,7 +61,7 @@ TDataValue *TSortTable::Find(TKey key) {
 
     curPosition = indexRightElement;
 
-    return nullptr;
+    return {};
 }
 
 bool TSortTable::Insert(TKey key, TDataValue *value) {
@@ -70,7 +70,7 @@ bool TSortTable::Insert(TKey key, TDataValue *value) {
         return false;
     }
 
-    if (Find(key), GetRetCode() != TAB_NO_RECORD) {
+    if (Find(key).has_value()) {
         SetRetCode(TAB_REC_DOUBLE);
         return false;
     }
@@ -90,7 +90,7 @@ bool TSortTable::Insert(TKey key, TDataValue *value) {
 }
 
 void TSortTable::Remove(TKey key) {
-    if (Find(key), GetRetCode() != TAB_NO_RECORD){
+    if (Find(key).has_value()){
         SetRetCode(TAB_OK);
         delete pData[curPosition];
         for (uint32_t i = curPosition; i < TTable::size - 1; i++) {
@@ -98,6 +98,7 @@ void TSortTable::Remove(TKey key) {
             efficiencyIndicator++;
         }
         pData[--TTable::size] = nullptr;
+        TArrayTable::Reset();
         efficiencyIndicator++;
     }
 }

@@ -4,7 +4,7 @@
 
 #include "../../include/storage-structure/TScanTable.h"
 
-TDataValue *TScanTable::Find(TKey key) {
+std::optional<TDataValue*> TScanTable::Find(TKey key) {
     int index = 0;
     SetRetCode(TAB_OK);
     for (; index < TTable::size; index++)
@@ -19,7 +19,7 @@ TDataValue *TScanTable::Find(TKey key) {
         return pData[curPosition]->value;
     }
     SetRetCode(TAB_NO_RECORD);
-    return nullptr;
+    return {};
 }
 
 bool TScanTable::Insert(TKey key, TDataValue *value) {
@@ -28,7 +28,7 @@ bool TScanTable::Insert(TKey key, TDataValue *value) {
         return false;
     }
 
-    if (Find(key), GetRetCode() != TAB_NO_RECORD) {
+    if (Find(key).has_value()) {
         SetRetCode(TAB_REC_DOUBLE);
         return false;
     }
@@ -43,12 +43,12 @@ bool TScanTable::Insert(TKey key, TDataValue *value) {
 }
 
 void TScanTable::Remove(TKey key) {
-    if (Find(key), GetRetCode() != TAB_NO_RECORD){
+    if (Find(key).has_value()){
         SetRetCode(TAB_OK);
         delete pData[curPosition];
         pData[curPosition] = pData[TTable::size - 1];
         pData[--TTable::size] = nullptr;
-
+        TArrayTable::Reset();
         efficiencyIndicator++;
     }
 }

@@ -19,7 +19,7 @@ bool TListHashTable::IsFull() const {
     return false;
 }
 
-TDataValue *TListHashTable::Find(TKey key) {
+std::optional<TDataValue*> TListHashTable::Find(TKey key) {
     SetRetCode(TAB_OK);
     curList = Hash(key) % size;
 
@@ -33,12 +33,11 @@ TDataValue *TListHashTable::Find(TKey key) {
     }
 
     SetRetCode(TAB_NO_RECORD);
-    return nullptr;
+    return {};
 }
 
 bool TListHashTable::Insert(TKey key, TDataValue *value) {
-
-    if (Find(key), GetRetCode() != TAB_NO_RECORD) {
+    if (Find(key).has_value()) {
         SetRetCode(TAB_REC_DOUBLE);
         return false;
     }
@@ -50,12 +49,14 @@ bool TListHashTable::Insert(TKey key, TDataValue *value) {
 }
 
 void TListHashTable::Remove(TKey key) {
-    if (Find(key), GetRetCode() != TAB_NO_RECORD){
+    if (Find(key).has_value()){
         SetRetCode(TAB_OK);
         pData[curList].erase(curIter);
-        efficiencyIndicator++;
         --TTable::size;
+        Reset();
+        efficiencyIndicator++;
     }
+
 }
 
 int TListHashTable::Reset() {
