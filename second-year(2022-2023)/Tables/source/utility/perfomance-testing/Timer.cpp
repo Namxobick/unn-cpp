@@ -4,7 +4,7 @@
 
 #include "../../../include/utility/perfomance-testing/Timer.h"
 
-double Timer::MarkTime(const std::function<void(const std::string& word, TTable* arrayTable)> &function,
+double Timer::MarkTime(const std::function<void(const std::string& word, TTable* table)> &function,
                                      const std::string& str, TTable* table) {
     double time_spent = 0.0;
     clock_t begin = clock();
@@ -16,8 +16,8 @@ double Timer::MarkTime(const std::function<void(const std::string& word, TTable*
     return time_spent;
 }
 
-std::pair<double, int64_t> Timer::MarkTime(const std::function<int64_t (TScanTable *scanTable, SortingMethod sortingMethod)> &function,
-                                           TScanTable *scanTable, SortingMethod sortingMethod) {
+std::pair<double, int64_t> Timer::MarkTimeAndEfficiency(const std::function<int64_t (TScanTable *scanTable, SortingMethod sortingMethod)> &function,
+                                                        TScanTable *scanTable, SortingMethod sortingMethod) {
     double time_spent = 0.0;
     clock_t begin = clock();
 

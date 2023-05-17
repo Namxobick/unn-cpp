@@ -7,6 +7,7 @@
 
 #include <list>
 #include "utility/THashTable.h"
+#include "../utility/MyException.h"
 
 class TListHashTable : public THashTable{
 protected:

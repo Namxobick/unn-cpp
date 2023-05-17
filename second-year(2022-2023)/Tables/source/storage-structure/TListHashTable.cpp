@@ -5,6 +5,9 @@
 #include "../../include/storage-structure/TListHashTable.h"
 
 TListHashTable::TListHashTable(size_t size) {
+    if (size == 0)
+        throw(MyException("The size can't be zero"));
+
     this->size = size;
     this->pData.resize(size);
     this->curList = 0;

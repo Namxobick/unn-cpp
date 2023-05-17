@@ -6,6 +6,7 @@
 #define TABLES_TARRAYTABLE_H
 
 #include "TTable.h"
+#include "../../utility/MyException.h"
 
 enum class Position{
     FIRST,

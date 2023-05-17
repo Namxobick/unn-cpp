@@ -8,24 +8,19 @@
 #include "../../storage-structure/TScanTable.h"
 #include "../../../include/storage-structure/TSortTable.h"
 #include "../../storage-structure/TListHashTable.h"
-#include "../../../include/utility/perfomance-testing/Timer.h"
-#include "../IO/Writer.h"
-#include "../../../include/utility/perfomance-testing/TestingConversion.h"
+#include "../../../include/utility/perfomance-testing/TestingTableConversion.h"
+#include "../../../include/utility/perfomance-testing/TestingTableOperations.h"
+
 
 class TestingTable {
 private:
-    TTable* _table;
+    TestingTableOperations _testingTableOperation;
+    TestingTableConversion _testingTableConversion;
+
 public:
-    void Test(const std::string& path, const std::string& word, TTable* table);
+    TestingTable();
     void TestAllTables(const std::string& path, const std::string& word);
-
-private:
-    void TestOneTable(const std::string& tableName, const std::string& path, const std::string& word, TTable* table);
-    void TestOneMethod(const std::function<void(const std::string& word, TTable* table)> &function,
-                       const std::string& nameMethod, const std::string& str);
-
-    void HelpTest(const std::function<void(const std::string& word, TTable* table)> &function,
-                  const std::string& str);
+    void TestTable(const std::string& tableName, const std::string& path, const std::string& word, TTable* table);
 };
 
 

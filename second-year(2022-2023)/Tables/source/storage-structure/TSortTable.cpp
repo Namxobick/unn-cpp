@@ -142,10 +142,9 @@ void TSortTable::ChangeSorting() {
             sorting = new StdSort();
             break;
         case SortingMethod::QuickSort:
-            std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> func = [](uint32_t indexFirstElement, uint32_t indexLastElement) {
+            sorting = new QuickSort([](uint32_t indexFirstElement, uint32_t indexLastElement) {
                 return (indexFirstElement + indexLastElement) / 2;
-            };
-            sorting = new QuickSort(func);
+            });
             break;
     }
 }

@@ -16,8 +16,8 @@ public:
     double MarkTime(const std::function<void(const std::string& word, TTable* table)>& function,
                     const std::string& word, TTable* table);
 
-    std::pair<double, int64_t> MarkTime(const std::function<int64_t (TScanTable *scanTable, SortingMethod sortingMethod)>& function,
-                                        TScanTable *scanTable, SortingMethod sortingMethod);
+    std::pair<double, int64_t> MarkTimeAndEfficiency(const std::function<int64_t (TScanTable *scanTable, SortingMethod sortingMethod)>& function,
+                                                     TScanTable *scanTable, SortingMethod sortingMethod);
 };
 
 

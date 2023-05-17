@@ -5,6 +5,9 @@
 #include "../../../include/storage-structure/utility/TArrayTable.h"
 
 TArrayTable::TArrayTable(size_t size) {
+    if (size == 0)
+        throw(MyException("The size can't be zero"));
+
     this->size = size;
     this->curPosition = 0;
     this->pData = new TTableRecord* [size];

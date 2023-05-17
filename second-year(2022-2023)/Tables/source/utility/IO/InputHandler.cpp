@@ -38,8 +38,10 @@ void InputHandler::ProcessInput(const std::string& path, TTable* table) {
         }
 
         bookNumber = DefineBook(buffer, bookNumber);
+
         if (buffer.size() > 1 or buffer == "—")
             AddedWordInTable(buffer, bookNumber, typeSymbols, language, counter++);
+
         if (!(std::find(PUNCTUATION_MARK.begin(), PUNCTUATION_MARK.end(), sym) == PUNCTUATION_MARK.end()))
             AddedWordInTable(std::string(1, sym), bookNumber, TypeSymbols::PUNCTUATION_MARK,
                             Language::NONE, counter++);
@@ -67,8 +69,8 @@ void InputHandler::ProcessNumber(char sym, std::string& buffer, BookNumber bookN
 void InputHandler::AddedWordInTable(const std::string& buffer, BookNumber bookNumber, TypeSymbols typeSymbols,
                                     Language language, uint32_t counter) {
     auto* wordsInWarAndPeace = new TWordsInWarAndPeace(bookNumber, typeSymbols, language,counter);
-    bool result = _table->Insert(buffer, wordsInWarAndPeace);
-    if (!result and _table->GetRetCode() == TAB_REC_DOUBLE){
+    _table->Insert(buffer, wordsInWarAndPeace);
+    if (_table->GetRetCode() == TAB_REC_DOUBLE){
         auto value = (TWordsInWarAndPeace*) _table->GetValue();
         value->AddWord(counter, bookNumber);
         delete wordsInWarAndPeace;

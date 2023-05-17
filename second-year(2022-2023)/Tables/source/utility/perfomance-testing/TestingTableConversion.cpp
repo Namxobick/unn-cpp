@@ -2,16 +2,16 @@
 // Created by Андрей Юрин on 23.04.2023.
 //
 
-#include "../../../include/utility/perfomance-testing/TestingConversion.h"
+#include "../../../include/utility/perfomance-testing/TestingTableConversion.h"
 
-void TestingConversion::TestConversionScanToSortTable(TScanTable *scanTable) {
+void TestingTableConversion::TestConversionsScanToSortTable(TScanTable *scanTable) {
     scanTable->ResetEfficiencyIndicator();
-    TestSorting(scanTable, SortingMethod::BubbleSort);
-    TestSorting(scanTable, SortingMethod::InsertingSort);
-    TestSorting(scanTable, SortingMethod::MergeSort);
-    TestSorting(scanTable, SortingMethod::HeapSort);
-    TestSorting(scanTable, SortingMethod::QuickSort);
-    TestSorting(scanTable, SortingMethod::StdSort);
+    TestConversion(scanTable, SortingMethod::BubbleSort);
+    TestConversion(scanTable, SortingMethod::InsertingSort);
+    TestConversion(scanTable, SortingMethod::MergeSort);
+    TestConversion(scanTable, SortingMethod::HeapSort);
+    TestConversion(scanTable, SortingMethod::QuickSort);
+    TestConversion(scanTable, SortingMethod::StdSort);
 }
 
 std::ostream &operator<<(std::ostream &ostream, const SortingMethod &sortingMethod) {
@@ -38,11 +38,13 @@ std::ostream &operator<<(std::ostream &ostream, const SortingMethod &sortingMeth
     return ostream;
 }
 
-void TestingConversion::TestSorting(TScanTable *scanTable, SortingMethod sortingMethod) {
+void TestingTableConversion::TestConversion(TScanTable *scanTable, SortingMethod sortingMethod) {
     std::cout << "------Start sorting: " << sortingMethod << "------" << std::endl;
 
-    auto efficiency = Timer().MarkTime([](TScanTable *scanTable, SortingMethod sortingMethod){return TSortTable(*scanTable, sortingMethod).GetEfficiencyIndicator();},
-                                       scanTable, sortingMethod);
+    auto efficiency = Timer().MarkTimeAndEfficiency([](TScanTable *scanTable, SortingMethod sortingMethod) {
+                                                        return TSortTable(*scanTable, sortingMethod).GetEfficiencyIndicator();
+                                                    },
+                                                    scanTable, sortingMethod);
     std::cout << "Number of records " << scanTable->GetNumberOfEntries() << std::endl;
     std::cout << "The elapsed time is " << efficiency.first << " seconds" << std::endl;
     std::cout << "The number of operations spent is equal to " << efficiency.second << std::endl;

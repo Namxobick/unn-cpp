@@ -12,7 +12,7 @@ class QuickSort: public ISorting{
 private:
     std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> _calculateIndexSupportElement;
 public:
-    explicit QuickSort(std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> &calculateIndexSupportElement);
+    explicit QuickSort(std::function<uint32_t(uint32_t indexFirstElement, uint32_t indexLastElement)> calculateIndexSupportElement);
 
     uint64_t Sort(TTableRecord** &data, size_t size) override;
 
