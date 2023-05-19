@@ -27,7 +27,7 @@ size_t TArrayTable::GetSize() const {
 }
 
 bool TArrayTable::IsFull() const {
-    return TTable::size > this->size;
+    return TTable::size >= this->size;
 }
 
 int TArrayTable::Reset() {

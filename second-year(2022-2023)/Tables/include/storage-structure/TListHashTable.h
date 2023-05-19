@@ -11,13 +11,13 @@
 
 class TListHashTable : public THashTable{
 protected:
-    std::vector<std::list<TTableRecord*>> pData;
+    std::vector<std::list<TTableRecord*>> data;
     size_t size;
     uint32_t curList;
     std::list<TTableRecord*>::iterator curIter;
 public:
     explicit TListHashTable(size_t size = 50);
-    ~TListHashTable() override = default;
+    ~TListHashTable() override;
 
     [[nodiscard]] size_t GetSize() const;
     [[nodiscard]] bool IsFull() const override;

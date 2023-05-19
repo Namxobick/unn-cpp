@@ -9,9 +9,18 @@ TListHashTable::TListHashTable(size_t size) {
         throw(MyException("The size can't be zero"));
 
     this->size = size;
-    this->pData.resize(size);
+    this->data.resize(size);
     this->curList = 0;
-    this->curIter = pData[curList].begin();
+    this->curIter = data[curList].begin();
+}
+
+TListHashTable::~TListHashTable() {
+    for(auto & vecIter : data) {
+        for (auto & listIter: vecIter)
+            delete listIter;
+        vecIter.clear();
+    }
+    data.clear();
 }
 
 size_t TListHashTable::GetSize() const {
@@ -26,7 +35,7 @@ std::optional<TDataValue*> TListHashTable::Find(TKey key) {
     SetRetCode(TAB_OK);
     curList = Hash(key) % size;
 
-    for (auto iter = pData[curList].begin(); iter != pData[curList].end(); ++iter) {
+    for (auto iter = data[curList].begin(); iter != data[curList].end(); ++iter) {
         efficiencyIndicator++;
         auto record = *iter;
         if (record->key == key) {
@@ -44,7 +53,7 @@ bool TListHashTable::Insert(TKey key, TDataValue *value) {
         SetRetCode(TAB_REC_DOUBLE);
         return false;
     }
-    pData[curList].push_back(new TTableRecord(key, value));
+    data[curList].push_back(new TTableRecord(key, value));
     efficiencyIndicator++;
     TTable::size++;
     SetRetCode(TAB_OK);
@@ -54,7 +63,7 @@ bool TListHashTable::Insert(TKey key, TDataValue *value) {
 void TListHashTable::Remove(TKey key) {
     if (Find(key).has_value()){
         SetRetCode(TAB_OK);
-        pData[curList].erase(curIter);
+        data[curList].erase(curIter);
         --TTable::size;
         Reset();
         efficiencyIndicator++;
@@ -64,8 +73,8 @@ void TListHashTable::Remove(TKey key) {
 
 int TListHashTable::Reset() {
     this->curList = 0;
-    while (pData[curList].empty() and !IsTabEnded()) curList++;
-    this->curIter = pData[curList].begin();
+    while (data[curList].empty() and !IsTabEnded()) curList++;
+    this->curIter = data[curList].begin();
     return IsTabEnded();
 }
 
@@ -73,15 +82,15 @@ int TListHashTable::Next() {
     if (!IsListEnded())
         this->curIter++;
     else if (!IsTabEnded()) {
-        while (pData[++curList].empty() and !IsTabEnded());
-        this->curIter = pData[curList].begin();
+        while (data[++curList].empty() and !IsTabEnded());
+        this->curIter = data[curList].begin();
     }
     return IsTabEnded();
 }
 
 int TListHashTable::IsListEnded() const {
     auto tempIter = curIter;
-    return ++tempIter == pData[curList].end();
+    return ++tempIter == data[curList].end();
 }
 
 int TListHashTable::IsTabEnded() const {
@@ -97,3 +106,4 @@ TDataValue *TListHashTable::GetValue() const {
     auto record = *curIter;
     return record->value;
 }
+

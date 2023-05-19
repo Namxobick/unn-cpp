@@ -32,4 +32,5 @@ add_executable(
         source/utility/perfomance-testing/TestingTableOperations.cpp include/utility/perfomance-testing/TestingTableOperations.h
         source/utility/perfomance-testing/Timer.cpp include/utility/perfomance-testing/Timer.h
         source/utility/MyException.cpp include/utility/MyException.h
+        source/storage-structure/TArrayHashTable.cpp include/storage-structure/TArrayHashTable.h
 )

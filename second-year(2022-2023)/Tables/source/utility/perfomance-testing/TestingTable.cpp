@@ -10,9 +10,10 @@ TestingTable::TestingTable() {
     _testingTableConversion = TestingTableConversion();
 }
 
-void TestingTable::TestAllTables(const std::string &path, const std::string &word) {
+void TestingTable::TestTables(const std::string &path, const std::string &word) {
     auto scanTable = new TScanTable(100000);
     auto sortTable = new TSortTable(100000);
+    auto arrayHashTable = new TArrayHashTable(100000);
     auto listHashTable = new TListHashTable(100000);
 
     TestTable("scanTable", path, word, scanTable);
@@ -22,12 +23,12 @@ void TestingTable::TestAllTables(const std::string &path, const std::string &wor
     std::cout << "~~~~~~~End of testing conversion ScanTable to SortTable~~~~~~~" <<std::endl << std::endl;
 
     TestTable("sortTable", path, word, sortTable);
-
+    TestTable("arrayHashTable", path, word, arrayHashTable);
     TestTable("listHashTable", path, word, listHashTable);
-
 
     delete scanTable;
     delete sortTable;
+    delete arrayHashTable;
     delete listHashTable;
 }
 
