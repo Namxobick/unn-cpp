@@ -13,22 +13,7 @@ bool TAVLTreeTable::Insert(TKey key, TDataValue *value) {
     efficiencyIndicator++;
     TTable::size++;
 
-    while (!iterStack.empty()) {
-        auto node = dynamic_cast<TAVLTreeNode *>(iterStack.top().first);
-        iterStack.pop();
-        node = Balance(node);
-
-        if (!iterStack.empty()) {
-            auto parentNode = dynamic_cast<TAVLTreeNode *>(iterStack.top().first);
-
-            if (node->key < parentNode->key)
-                parentNode->pLeft = node;
-            else
-                parentNode->pRight = node;
-        }
-        else
-             pRoot = node;
-    }
+    BalancePath();
 
     SetRetCode(TAB_OK);
     return true;
@@ -37,22 +22,7 @@ bool TAVLTreeTable::Insert(TKey key, TDataValue *value) {
 void TAVLTreeTable::Remove(TKey key) {
     TTreeTable::Remove(key);
 
-    while (!iterStack.empty()) {
-        auto node = dynamic_cast<TAVLTreeNode *>(iterStack.top().first);
-        iterStack.pop();
-        node = Balance(node);
-
-        if (!iterStack.empty()) {
-            auto parentNode = dynamic_cast<TAVLTreeNode *>(iterStack.top().first);
-
-            if (node->key < parentNode->key)
-                parentNode->pLeft = node;
-            else
-                parentNode->pRight = node;
-        }
-        else
-            pRoot = node;
-    }
+    BalancePath();
 }
 
 TAVLTreeNode* TAVLTreeTable::RotateLeft(TAVLTreeNode *node) {
@@ -94,5 +64,24 @@ TAVLTreeNode* TAVLTreeTable::Balance(TAVLTreeNode* node) {
         return RotateRight(node);
     }
     return node;
+}
+
+void TAVLTreeTable::BalancePath() {
+    while (!iterStack.empty()) {
+        auto node = dynamic_cast<TAVLTreeNode *>(iterStack.top().first);
+        iterStack.pop();
+        node = Balance(node);
+
+        if (!iterStack.empty()) {
+            auto parentNode = dynamic_cast<TAVLTreeNode *>(iterStack.top().first);
+
+            if (node->key < parentNode->key)
+                parentNode->pLeft = node;
+            else
+                parentNode->pRight = node;
+        }
+        else
+            pRoot = node;
+    }
 }
 

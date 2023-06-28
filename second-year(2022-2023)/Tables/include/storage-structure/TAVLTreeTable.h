@@ -21,6 +21,7 @@ private:
     TAVLTreeNode* RotateLeft(TAVLTreeNode* node);
     TAVLTreeNode* RotateRight(TAVLTreeNode* node);
     TAVLTreeNode* Balance(TAVLTreeNode* node);
+    void BalancePath();
 };
 
 

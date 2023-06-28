@@ -70,7 +70,9 @@ void TTreeTable::Remove(TKey key) {
         *ppMinNodeInRightSubtree = pMinNodeInRightSubtree->pRight;
 
         pMinNodeInRightSubtree->pLeft = pResultFind->pLeft;
-        pMinNodeInRightSubtree->pRight = pResultFind->pRight;
+
+        if (pMinNodeInRightSubtree->key != pResultFind->pRight->key)
+            pMinNodeInRightSubtree->pRight = pResultFind->pRight;
 
         *ppCurrentNode = pMinNodeInRightSubtree;
     }
