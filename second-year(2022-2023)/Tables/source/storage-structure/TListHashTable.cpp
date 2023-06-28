@@ -53,6 +53,8 @@ bool TListHashTable::Insert(TKey key, TDataValue *value) {
         SetRetCode(TAB_REC_DOUBLE);
         return false;
     }
+
+
     data[curList].push_back(new TTableRecord(key, value));
     efficiencyIndicator++;
     TTable::size++;

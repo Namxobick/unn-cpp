@@ -14,8 +14,7 @@ private:
     uint32_t _primeNumber; // A prime number approximately equal to the number of characters in the input alphabet.
 
 public:
-    explicit StringHashFunction(uint32_t primeNumber = 131);
-
+    explicit StringHashFunction(uint32_t primeNumber = 103);
     uint64_t Hash(std::string key) override;
 };
 

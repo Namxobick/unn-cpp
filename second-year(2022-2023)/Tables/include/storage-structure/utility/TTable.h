@@ -12,7 +12,8 @@
 #define TAB_REC_DOUBLE (-104)
 
 #include <iostream>
-#include "../../data-structure/utility/TDatCom.h"
+#include "../../utility/exception/TDatCom.h"
+
 #include "../../data-structure/utility/TDataValue.h"
 #include "../../data-structure/utility/TTableRecord.h"
 

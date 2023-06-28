@@ -9,7 +9,7 @@ add_executable(
         source/data-structure/utility/TDataValue.cpp include/data-structure/utility/TDataValue.h
         source/data-structure/utility/TTableRecord.cpp include/data-structure/utility/TTableRecord.h
         source/storage-structure/utility/TTable.cpp include/storage-structure/utility/TTable.h
-        source/data-structure/utility/TDatCom.cpp include/data-structure/utility/TDatCom.h
+        source/utility/exception/TDatCom.cpp include/utility/exception/TDatCom.h
         source/storage-structure/utility/TArrayTable.cpp include/storage-structure/utility/TArrayTable.h
         source/storage-structure/TScanTable.cpp include/storage-structure/TScanTable.h
         source/data-structure/TWordsInWarAndPeace.cpp include/data-structure/TWordsInWarAndPeace.h
@@ -31,6 +31,9 @@ add_executable(
         source/utility/perfomance-testing/TestingTableConversion.cpp include/utility/perfomance-testing/TestingTableConversion.h
         source/utility/perfomance-testing/TestingTableOperations.cpp include/utility/perfomance-testing/TestingTableOperations.h
         source/utility/perfomance-testing/Timer.cpp include/utility/perfomance-testing/Timer.h
-        source/utility/MyException.cpp include/utility/MyException.h
+        source/utility/exception/MyException.cpp include/utility/exception/MyException.h
         source/storage-structure/TArrayHashTable.cpp include/storage-structure/TArrayHashTable.h
-)
+        source/data-structure/utility/TTreeNode.cpp include/data-structure/utility/TTreeNode.h
+        source/storage-structure/TTreeTable.cpp include/storage-structure/TTreeTable.h
+        source/data-structure/utility/TAVLTreeNode.cpp include/data-structure/utility/TAVLTreeNode.h
+        source/storage-structure/TAVLTreeTable.cpp include/storage-structure/TAVLTreeTable.h)

@@ -10,12 +10,12 @@
 #include "../../storage-structure/TScanTable.h"
 #include "../../data-structure/TWordsInWarAndPeace.h"
 #include "../../../include/utility/IO/Writer.h"
-#include "../MyException.h"
+#include "../exception/MyException.h"
 
 class InputHandler {
 private:
     const std::vector<char> PUNCTUATION_MARK = {'\n', '\t', ' ', '.', ',', '!', '?', ':', ';', '"', '(', ')', '-',
-                                                '[', ']', '*'};
+                                                '_', '[', ']', '*'};
     TTable* _table;
 public:
     void ProcessInput(const std::string& path, TTable* table);

@@ -14,10 +14,10 @@ private:
 
 public:
     void TestOperations(const std::string& path, const std::string& word, TTable* table);
-
-private:
     void TestOperation(const std::function<void(const std::string& word, TTable* table)> &function,
                        const std::string& nameMethod, const std::string& str);
+
+private:
 
     void HelpTest(const std::function<void(const std::string& word, TTable* table)> &function,
                   const std::string& str);

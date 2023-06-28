@@ -7,7 +7,7 @@
 
 
 #include "utility/THashTable.h"
-#include "../utility/MyException.h"
+#include "../utility/exception/MyException.h"
 
 
 class TArrayHashTable : public THashTable {

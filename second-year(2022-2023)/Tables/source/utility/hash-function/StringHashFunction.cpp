@@ -3,7 +3,6 @@
 //
 
 #include "../../../include/utility/hash-function/StringHashFunction.h"
-
 StringHashFunction::StringHashFunction(uint32_t primeNumber) {
     _primeNumber = primeNumber;
 }
@@ -17,3 +16,4 @@ uint64_t StringHashFunction::Hash(std::string key) {
     }
     return hash;
 }
+
