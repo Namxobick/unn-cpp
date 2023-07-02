@@ -60,6 +60,7 @@ private:
 
 public:
     TWordsInWarAndPeace();
+    ~TWordsInWarAndPeace() override = default;
     TWordsInWarAndPeace(BookNumber bookNumber, TypeSymbols typeSymbols, Language language, uint32_t sequentialNumber);
     TWordsInWarAndPeace(WordCount wordCount, TypeSymbols typeSymbols, Language language, std::vector<uint32_t> sequentialNumbers);
     void AddWord(uint32_t sequentialNumber, BookNumber bookNumber);

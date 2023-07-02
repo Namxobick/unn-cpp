@@ -54,7 +54,6 @@ bool TListHashTable::Insert(TKey key, TDataValue *value) {
         return false;
     }
 
-
     data[curList].push_back(new TTableRecord(key, value));
     efficiencyIndicator++;
     TTable::size++;
@@ -65,6 +64,7 @@ bool TListHashTable::Insert(TKey key, TDataValue *value) {
 void TListHashTable::Remove(TKey key) {
     if (Find(key).has_value()){
         SetRetCode(TAB_OK);
+        delete *curIter;
         data[curList].erase(curIter);
         --TTable::size;
         Reset();
@@ -84,8 +84,12 @@ int TListHashTable::Next() {
     if (!IsListEnded())
         this->curIter++;
     else if (!IsTabEnded()) {
-        while (data[++curList].empty() and !IsTabEnded());
-        this->curIter = data[curList].begin();
+        do
+            this->curList++;
+        while (!IsTabEnded() and data[curList].empty());
+
+        if (!IsTabEnded())
+            this->curIter = data[curList].begin();
     }
     return IsTabEnded();
 }

@@ -17,6 +17,10 @@ TSortTable::TSortTable(const TScanTable &scanTable, SortingMethod sortingMet) {
     *this = scanTable;
 }
 
+TSortTable::~TSortTable() {
+    delete sorting;
+}
+
 TSortTable &TSortTable::operator=(const TScanTable &scanTable) {
     if (pData != nullptr){
         for (int i = 0; i < TArrayTable::size; ++i) {

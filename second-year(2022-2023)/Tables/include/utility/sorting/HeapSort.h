@@ -10,6 +10,7 @@
 
 class HeapSort : public ISorting{
 public:
+    ~HeapSort() override = default;
     uint64_t Sort(TTableRecord** &data, size_t size) override;
 
 private:

@@ -14,6 +14,7 @@ private:
     StringHashFunction _stringHashFunction;
 public:
     explicit THashTable(uint32_t primeNumber = 131);
+    ~THashTable() override = default;
 
 protected:
     uint64_t Hash(const TKey& key);

@@ -14,6 +14,7 @@ protected:
 
 public:
     explicit MyException (const char* str);
+    ~MyException() override = default;
     [[nodiscard]] const char * what () const noexcept override;
 };
 

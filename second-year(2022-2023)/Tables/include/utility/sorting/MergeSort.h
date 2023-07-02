@@ -9,6 +9,7 @@
 
 class MergeSort: public ISorting {
 public:
+    ~MergeSort() override = default;
     uint64_t Sort(TTableRecord** &data, size_t size) override;
 
 private:

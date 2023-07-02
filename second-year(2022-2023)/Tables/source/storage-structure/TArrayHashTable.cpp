@@ -96,9 +96,14 @@ int TArrayHashTable::Reset() {
 }
 
 int TArrayHashTable::Next() {
+    if (IsTabEnded())
+        return 1;
+
+    curPosition++;
+
     while (!IsTabEnded()) {
-        curPosition++;
         if (data[curPosition] != nullptr and data[curPosition] != pMark) break;
+        curPosition++;
     }
     return IsTabEnded();
 }

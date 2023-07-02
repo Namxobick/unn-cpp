@@ -25,6 +25,7 @@ protected:
 public:
     explicit TSortTable(size_t size = 50, SortingMethod sortingMet = SortingMethod::StdSort);
     explicit TSortTable(const TScanTable& scanTable, SortingMethod sortingMet = SortingMethod::StdSort);
+    ~TSortTable() override;
 
     TSortTable& operator=(const TScanTable& scanTable);
     [[nodiscard]] SortingMethod GetSortingMethod() const;

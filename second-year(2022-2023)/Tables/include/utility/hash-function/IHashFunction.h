@@ -13,6 +13,7 @@ class IHashFunction {
 
 public:
     virtual uint64_t Hash(TKey key) = 0;
+    virtual ~IHashFunction() = default;
 };
 
 

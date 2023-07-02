@@ -9,12 +9,13 @@
 #include <string>
 #include "IHashFunction.h"
 
-class StringHashFunction : IHashFunction<std::string> {
+class StringHashFunction : public IHashFunction<std::string> {
 private:
     uint32_t _primeNumber; // A prime number approximately equal to the number of characters in the input alphabet.
 
 public:
     explicit StringHashFunction(uint32_t primeNumber = 103);
+    ~StringHashFunction() override = default;
     uint64_t Hash(std::string key) override;
 };
 

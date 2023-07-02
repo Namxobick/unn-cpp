@@ -10,6 +10,7 @@
 
 class InsertionSort: public ISorting{
 public:
+    ~InsertionSort() override = default;
     uint64_t Sort(TTableRecord** &data, size_t size) override;
 };
 

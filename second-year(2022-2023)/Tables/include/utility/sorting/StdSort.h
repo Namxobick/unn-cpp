@@ -11,6 +11,7 @@
 class StdSort : public ISorting{
 public:
     uint64_t Sort(TTableRecord** &data, size_t size) override;
+    ~StdSort() override = default;
 };
 
 

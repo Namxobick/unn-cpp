@@ -11,6 +11,7 @@
 class TScanTable : public TArrayTable{
 public:
     explicit TScanTable(size_t size = 50) : TArrayTable(size) {};
+    ~TScanTable() override = default;
 
     std::optional<TDataValue*> Find(TKey key) override;
     bool Insert(TKey key, TDataValue* value) override;
